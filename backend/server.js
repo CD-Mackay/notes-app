@@ -28,13 +28,14 @@ pool.connect((err, client, release) => {
   });
 });
 
-app.get('/', (req, res) => {
+app.get('/notes', (req, res) => {
   pool.query(`SELECT * FROM notes;`)
   .then(data => {
     res.json(data.rows);
   })
 });
 
-app.post('/', (req, res) => {
-  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
+app.post('/notes', (req, res) => {
+  console.log(req.body);
+  // pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
 });
