@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function useApplicationData() {
 
   function saveNote(title, text) {
+    console.log(title, text);
     const note = {
       title: title,
       text: text
@@ -12,7 +13,7 @@ export default function useApplicationData() {
 
     return axios({
       method: 'post',
-      url: '/',
+      url: '/notes',
       data: { note }
     }).catch(err => console.log(err));
   }
