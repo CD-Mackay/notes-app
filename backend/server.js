@@ -10,7 +10,8 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   host: 'localhost',
-  user: 'connormackay'
+  user: 'connormackay',
+  database: 'notes'
 });
 
 
@@ -25,4 +26,15 @@ pool.connect((err, client, release) => {
     }
     console.log(result.rows);
   });
+});
+
+app.get('/', (req, res) => {
+  pool.query(`SELECT * FROM notes;`)
+  .then(data => {
+    res.json(data.rows);
+  })
+});
+
+app.post('/', (req, res) => {
+  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
 });
