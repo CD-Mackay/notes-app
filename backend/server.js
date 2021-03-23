@@ -36,5 +36,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
+  console.log(req.body);
+  // pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
 });
