@@ -3,14 +3,16 @@ const express = require('express');
 const app = express();
 
 const PORT = process.env.port || 8080;
+const user = process.env.PGUSER || 'connormackay';
+const database = process.env.PGDATABASE || 'notes';
 
 
 const { Pool } = require('pg');
 
 const pool = new Pool({
   host: 'localhost',
-  user: 'connormackay',
-  database: 'notes'
+  user: user,
+  database: database
 });
 
 
@@ -27,6 +29,8 @@ pool.connect((err, client, release) => {
   });
 });
 
+app.use(express.static(__dirname));
+
 app.get('/notes', (req, res) => {
   pool.query(`SELECT * FROM notes;`)
   .then(data => {
@@ -36,7 +40,10 @@ app.get('/notes', (req, res) => {
 
 app.post('/notes', (req, res) => {
   console.log(req.params);
-  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
+  console.log(req.body);
+  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2);`, ["title", "text"])
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
 });
 
 

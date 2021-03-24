@@ -7,15 +7,21 @@ export default function Input(props) {
     text: ""
   });
 
+  const save = () => {
+    console.log("saving in input component!");
+    props.onSave(state.title, state.text);
+  }
 
   return (
   <form onSubmit={event => event.preventDefault()}>
-      
-      <input type="text" name="title"  onChange={event => setState(prev => ({...prev, title: event.target.value, text: ""}))}></input>
-      <textarea name="text" onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
+      <input type="text" name="title" value={state.title} 
+      onChange={event => setState(prev => ({...prev, title: event.target.value}))}></input>
 
+      <textarea name="text" value={state.text} 
+      onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
       </textarea>
-      <Button message="save" onClick={props.onSave(state.title, state.text)} />
+
+      <button onClick={save}>Save</button>
       {/* <Button message="delete" /> */}
     </form>
   )
