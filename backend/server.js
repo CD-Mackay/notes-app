@@ -35,7 +35,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  console.log(req);
+  console.log(req.params);
   pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
 });
 
