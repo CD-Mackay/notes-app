@@ -5,6 +5,12 @@ const app = express();
 const PORT = process.env.port || 8080;
 const user = process.env.PGUSER || 'connormackay';
 const database = process.env.PGDATABASE || 'notes';
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 const { Pool } = require('pg');
@@ -39,9 +45,8 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  console.log(req.params);
-  console.log(req.body);
-  pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2);`, ["title", "text"])
+  console.log(req.body.note);
+  pool.query("INSERT INTO notes(title, text) VALUES ($1, $2);", [req.body.note.title, req.body.note.text])
   .then(res => console.log(res))
   .catch(err => console.log(err));
 });
