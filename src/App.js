@@ -10,11 +10,11 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote } = useApplicationData();
+const { saveNote, deleteNote } = useApplicationData();
 
   return (
     <div className="App">
-      <Input onSave={saveNote} />
+      <Input onDelete={deleteNote} onSave={saveNote} />
     </div>
   );
 }

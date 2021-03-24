@@ -13,6 +13,11 @@ export default function Input(props) {
     props.onSave(state.title, state.text);
   }
 
+  const remove = () => {
+    console.log('deleting in input component');
+    props.onDelete(state.title, state.text);
+  }
+
   return (
   <form onSubmit={event => event.preventDefault()}>
       <input type="text" name="title" value={state.title} 
@@ -23,7 +28,7 @@ export default function Input(props) {
       </textarea>
 
       <button onClick={save}>Save</button>
-      {/* <Button message="delete" /> */}
+      <button onClick={remove}>Delete</button>
     </form>
   )
 }
