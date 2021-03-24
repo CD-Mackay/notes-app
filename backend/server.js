@@ -4,7 +4,6 @@ const app = express();
 
 const PORT = process.env.port || 8080;
 
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}!`));
 
 const { Pool } = require('pg');
 
@@ -36,6 +35,9 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  console.log(req.body);
+  console.log(req.params);
   pool.query(`INSERT INTO TABLE notes (title, text) VALUES ($1, $2)`, [title, text])
 });
+
+
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}!`));
