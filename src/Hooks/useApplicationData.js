@@ -16,7 +16,7 @@ export default function useApplicationData() {
     return axios({
       method: 'post',
       url: '/notes',
-      data: JSON.stringify({ note })
+      data: { note }
     }).catch(err => console.log(err));
   };
 
