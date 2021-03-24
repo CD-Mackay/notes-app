@@ -4,6 +4,18 @@ import { useEffect, useState } from 'react';
 
 export default function useApplicationData() {
 
+  function deleteNote(title, text) {
+    const note = {
+      title: title,
+      text: text
+    };
+
+    return axios({
+      method: 'delete',
+      url: '/notes',
+      data: { note }
+    }).catch(err => console.log(err));
+  }
   function saveNote(title, text) {
     console.log('saving in hooks!')
     console.log(title, text);
@@ -20,7 +32,7 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
-    return { saveNote }
+    return { saveNote, deleteNote }
 }
 
 

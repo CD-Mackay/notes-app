@@ -51,5 +51,11 @@ app.post('/notes', (req, res) => {
   .catch(err => console.log(err));
 });
 
+app.delete('/notes', (req, res) => {
+  console.log(req.body.note);
+  pool.query('DELETE FROM notes WHERE title = $1 and text = $2', [req.body.note.title, req.body.note.text])
+  .then(res => console.log(res))
+  .catch(err => console.log(err));
+});
 
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}!`));
