@@ -17,7 +17,7 @@ const { saveNote, deleteNote, notes } = useApplicationData();
   return (
     <div className="App">
       <Input onDelete={deleteNote} onSave={saveNote} />
-      <NoteList notes={notes} />
+      <NoteList savedNotes={notes} />
     </div>
   );
 }
