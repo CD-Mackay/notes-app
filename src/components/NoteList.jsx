@@ -4,7 +4,9 @@ import NoteListItem from './NoteListItem';
 export default function NoteList(props) {
 
   const parsedNotes = props.savedNotes.map(note => {
-    return <NoteListItem key={note.id} title={note.title} />
+    if (note.note) {
+    return <NoteListItem key={note.note.id} title={note.note.title} />
+    }
   })
   return (
     <div>
