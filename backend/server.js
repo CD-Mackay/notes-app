@@ -46,7 +46,7 @@ app.get('/notes', (req, res) => {
 
 app.post('/notes', (req, res) => {
   console.log(req.body.note);
-  pool.query("INSERT INTO notes(title, text) VALUES ($1, $2);", [req.body.note.title, req.body.note.text])
+  pool.query("INSERT INTO notes(note) VALUES ($1);", [req.body.note])
   .then(res => console.log(res))
   .catch(err => console.log(err));
 });
