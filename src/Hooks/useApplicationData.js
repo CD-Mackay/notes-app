@@ -12,7 +12,7 @@ export default function useApplicationData() {
       url: 'notes'
     })
     .then(res => {
-      setNotes([res.data]);
+      setNotes(res.data);
     })
     .catch(err => console.log(err));
   }, []);

@@ -3,10 +3,7 @@ import NoteListItem from './NoteListItem';
 
 export default function NoteList(props) {
 
-  const parsedNotes = props.savedNotes[0].map(note => {
-    console.log(props);
-    console.log(props.savedNotes[0]);
-    console.log(note);
+  const parsedNotes = props.savedNotes.map(note => {
     return <NoteListItem key={note.id} title={note.title} />
   })
   return (
