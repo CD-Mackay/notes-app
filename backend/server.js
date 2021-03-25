@@ -58,4 +58,8 @@ app.delete('/notes', (req, res) => {
   .catch(err => console.log(err));
 });
 
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}!`));
+app.listen(PORT, () => {
+  console.log("()---------------------------------()")
+  console.log(`Backend running on port ${PORT}!`)
+  console.log("()---------------------------------()")
+});

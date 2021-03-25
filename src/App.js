@@ -4,6 +4,7 @@ import './App.css';
 /// import components
 import Input from './components/Input';
 import NoteList from './components/NoteList';
+import MyEditor from './components/Editor';
 
 
 
@@ -16,8 +17,9 @@ const { saveNote, deleteNote, notes } = useApplicationData();
 
   return (
     <div className="App">
-      <Input onDelete={deleteNote} onSave={saveNote} />
-      <NoteList savedNotes={notes} />
+      {/* <Input onDelete={deleteNote} onSave={saveNote} />
+      <NoteList savedNotes={notes} /> */}
+      <MyEditor />
     </div>
   );
 }
