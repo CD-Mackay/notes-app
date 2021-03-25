@@ -4,6 +4,18 @@ import { useEffect, useState } from 'react';
 
 export default function useApplicationData() {
 
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: 'notes'
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err));
+  }, []);
+
   function deleteNote(title, text) {
     const note = {
       title: title,
