@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function useApplicationData() {
 
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     axios({
@@ -11,7 +12,7 @@ export default function useApplicationData() {
       url: 'notes'
     })
     .then(res => {
-      console.log(res);
+      setNotes([res.data]);
     })
     .catch(err => console.log(err));
   }, []);
@@ -44,7 +45,7 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
-    return { saveNote, deleteNote }
+    return { saveNote, deleteNote, notes }
 }
 
 

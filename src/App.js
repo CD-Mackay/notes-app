@@ -3,6 +3,8 @@ import './App.css';
 
 /// import components
 import Input from './components/Input';
+import NoteList from './components/NoteList';
+
 
 
 // Import Hooks
@@ -10,11 +12,12 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote, deleteNote } = useApplicationData();
+const { saveNote, deleteNote, notes } = useApplicationData();
 
   return (
     <div className="App">
       <Input onDelete={deleteNote} onSave={saveNote} />
+      <NoteList notes={notes} />
     </div>
   );
 }
