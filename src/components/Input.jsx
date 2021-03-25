@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import './styles.scss';
 
 export default function Input(props) {
   const [state, setState] = useState({
