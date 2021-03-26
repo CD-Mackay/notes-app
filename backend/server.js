@@ -8,7 +8,6 @@ const database = process.env.PGDATABASE || 'notes';
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -59,7 +58,19 @@ app.delete('/notes', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("()---------------------------------()")
-  console.log(`Backend running on port ${PORT}!`)
-  console.log("()---------------------------------()")
+  setTimeout(() => {
+    console.log("3!!!");
+  }, 500)
+  setTimeout(() => {
+    console.log("2!!");
+  }, 1000)
+  setTimeout(() => {
+    console.log("1!");
+  }, 1500)
+  setTimeout(() => {
+    console.log(`Backend running on port ${PORT}!`)
+    console.log("Is it really though? ¯\_(ツ)_/¯")
+  }, 2000)
+
+    
 });
