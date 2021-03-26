@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 /// import components
 import Input from './components/Input';
@@ -16,11 +18,15 @@ function App() {
 const { saveNote, deleteNote, notes } = useApplicationData();
 
   return (
+    <Router>
     <div className="App">
-      {/* <Input onDelete={deleteNote} onSave={saveNote} />
-      <NoteList savedNotes={notes} /> */}
+      <Input onDelete={deleteNote} onSave={saveNote} />
+      <NoteList savedNotes={notes} />
+      <Route path="notes/:id">
       <MyEditor />
+      </Route>
     </div>
+    </Router>
   );
 }
 
