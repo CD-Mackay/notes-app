@@ -7,9 +7,22 @@ export default function Input(props) {
     text: ""
   });
 
+  const isValid = () => {
+    if (state.title !== "" && state.text !== "") {
+      console.log("true");
+      return true;
+    }
+    console.log("false");
+    return false;
+  }
   const save = () => {
-    console.log("saving in input component!");
-    props.onSave(state.title, state.text);
+    if (isValid()) {
+      console.log("saving in input component!");
+      props.onSave(state.title, state.text);
+    } else {
+      console.log("save failed");
+    }
+    
   }
 
   const remove = () => {
