@@ -17,18 +17,15 @@ export default function useApplicationData() {
     .catch(err => console.log(err));
   }, []);
 
-  function deleteNote(title, text) {
-    const note = {
-      title: title,
-      text: text
-    };
+  function deleteNote(id) {
 
     return axios({
       method: 'delete',
       url: '/notes',
-      data: { note }
+      data: { id }
     }).catch(err => console.log(err));
   }
+
   function saveNote(title, text) {
     console.log('saving in hooks!')
     console.log(title, text);

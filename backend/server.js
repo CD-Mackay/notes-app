@@ -51,9 +51,9 @@ app.post('/notes', (req, res) => {
 });
 
 app.delete('/notes', (req, res) => {
-  console.log(req.body.note);
-  pool.query('DELETE FROM notes WHERE id = $1', [req.body.note.title, req.body.note.text])
-  .then(res => console.log(res))
+  console.log(req.body);
+  pool.query('DELETE FROM notes WHERE id = $1', [req.body.id])
+  .then(res => console.log(res.command))
   .catch(err => console.log(err));
 });
 
