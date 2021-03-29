@@ -16,11 +16,14 @@ Editor {
 }
 
 textarea {
-  width: 800px;
+  width: 40vw;
   height: 500px;
   align-self: center;
 }
 
+input {
+  font-size: 34px;
+}
 .save {
   color: #00ff9f;
   background-color: black;
