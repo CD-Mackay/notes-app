@@ -41,8 +41,8 @@ export default function Input(props) {
       onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
       </textarea>
 
-      <button onClick={save}>Save</button>
-      <button onClick={remove}>Delete</button>
+      <button className="save" onClick={save}>Save</button>
+      <button className="delete" onClick={remove}>Delete</button>
       {state.error && <p>{state.error}</p>}
     </form>
   )
