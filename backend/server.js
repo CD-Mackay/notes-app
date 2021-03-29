@@ -60,17 +60,19 @@ app.delete('/notes', (req, res) => {
 app.listen(PORT, () => {
   setTimeout(() => {
     console.log("3!!!");
-  }, 500)
+  }, 400)
   setTimeout(() => {
     console.log("2!!");
-  }, 1000)
+  }, 800)
   setTimeout(() => {
     console.log("1!");
-  }, 1500)
+  }, 1200)
   setTimeout(() => {
     console.log(`Backend running on port ${PORT}!`)
-    console.log("Is it really though? ¯\_(ツ)_/¯")
   }, 2000)
+  setTimeout(() => {
+    console.log("Is it really though? ¯\_(ツ)_/¯")
+  }, 8000)
 
     
 });
