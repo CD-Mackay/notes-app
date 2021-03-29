@@ -34,15 +34,15 @@ export default function Input(props) {
 
   return (
   <form onSubmit={event => event.preventDefault()}>
-      <input type="text" name="title" value={state.title} 
+      <input type="text" name="title" value={state.title} placeholder="Title"
       onChange={event => setState(prev => ({...prev, title: event.target.value}))}></input>
 
-      <textarea name="text" value={state.text} 
+      <textarea name="text" value={state.text} placeholder="all your thoughts go here"
       onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
       </textarea>
 
-      <button onClick={save}>Save</button>
-      <button onClick={remove}>Delete</button>
+      <button className="save" onClick={save}>Save</button>
+      <button className="delete" onClick={remove}>Delete</button>
       {state.error && <p>{state.error}</p>}
     </form>
   )
