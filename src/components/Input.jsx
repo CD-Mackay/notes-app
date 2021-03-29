@@ -4,7 +4,8 @@ import Button from './Button';
 export default function Input(props) {
   const [state, setState] = useState({
     title: "",
-    text: ""
+    text: "",
+    error: null
   });
 
   const isValid = () => {
@@ -21,6 +22,7 @@ export default function Input(props) {
       props.onSave(state.title, state.text);
     } else {
       console.log("save failed");
+      setState(prev => ({...prev, error: "Notes must contain a title and text"}));
     }
     
   }
@@ -41,6 +43,7 @@ export default function Input(props) {
 
       <button onClick={save}>Save</button>
       <button onClick={remove}>Delete</button>
+      {state.error && <p>{state.error}</p>}
     </form>
   )
 }
