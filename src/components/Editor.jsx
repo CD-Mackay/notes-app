@@ -8,7 +8,15 @@ export default function MyEditor() {
     () => EditorState.createEmpty(),
   );
 
+  const submit = () => {
+    console.log(editorState);
+  }
   return (
+    <div className="editor">
+      {/* <form onSubmit={event => event.preventDefault()}> */}
     <Editor editorState={editorState} onChange={setEditorState} />
+    <button onClick={() => submit()}type="submit">Save</button>
+    {/* </form> */}
+    </div>
   )
 }
