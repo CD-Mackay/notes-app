@@ -22,9 +22,9 @@ const { saveNote, deleteNote, notes } = useApplicationData();
     <div className="App">
       <Input onDelete={deleteNote} onSave={saveNote} />
       <NoteList savedNotes={notes} onDelete={deleteNote} />
-      <Route path="notes/:id">
-      <MyEditor />
-      </Route>
+      {/* <Route path="notes/editor"> */}
+      {/* <MyEditor /> */}
+      {/* </Route> */}
     </div>
     </Router>
   );

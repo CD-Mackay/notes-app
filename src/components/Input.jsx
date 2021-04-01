@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import MyEditor from './Editor';
 
 export default function Input(props) {
   const [state, setState] = useState({
@@ -9,6 +10,7 @@ export default function Input(props) {
   });
 
   const isValid = () => {
+    console.log(state);
     if (state.title !== "" && state.text !== "") {
       console.log("true");
       return true;
@@ -40,6 +42,7 @@ export default function Input(props) {
       <textarea name="text" value={state.text} placeholder="all your thoughts go here"
       onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
       </textarea>
+      {/* <MyEditor /> */}
 
       <button className="save" onClick={save}>Save</button>
       <button className="delete" onClick={remove}>Delete</button>
