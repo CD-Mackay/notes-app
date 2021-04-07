@@ -26,13 +26,10 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   }
 
-  function saveNote(title, text) {
+  function saveNote(note) {
     console.log('saving in hooks!')
-    console.log(title, text);
-    const note = {
-      title: title,
-      text: text
-    }
+    console.log(note);
+    // const note = { note };
 
 
     return axios({
