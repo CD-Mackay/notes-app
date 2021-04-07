@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ const { saveNote, deleteNote, notes } = useApplicationData();
     <Router>
     <div className="App">
       {/* <Input onDelete={deleteNote} onSave={saveNote} /> */}
-     
       {/* <Route path="notes/editor"> */}
       <MyEditor onSave={saveNote} onDelete={deleteNote} />
       {/* </Route> */}

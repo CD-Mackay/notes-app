@@ -42,8 +42,6 @@ export default function Input(props) {
       <textarea name="text" value={state.text} placeholder="all your thoughts go here"
       onChange={event => setState(prev => ({...prev, text: event.target.value}))}>
       </textarea>
-      {/* <MyEditor /> */}
-
       <button className="save" onClick={save}>Save</button>
       <button className="delete" onClick={remove}>Delete</button>
       {state.error && <p>{state.error}</p>}
