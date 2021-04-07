@@ -29,9 +29,7 @@ export default function useApplicationData() {
   function saveNote(note) {
     console.log('saving in hooks!')
     console.log(note);
-    // const note = { note };
-
-
+    
     return axios({
       method: 'post',
       url: '/notes',

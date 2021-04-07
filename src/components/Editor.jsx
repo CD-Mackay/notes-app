@@ -15,8 +15,8 @@ export default function MyEditor(props) {
     <div className="editor">
       {/* <form onSubmit={event => event.preventDefault()}> */}
     <Editor editorState={editorState} onChange={setEditorState} />
-    <button onClick={() => props.onSave(editorState)} >Save</button>
-    <button onClick={props.onDelete} >Delete</button>
+    <button className="save" onClick={() => props.onSave(editorState)} >Save</button>
+    <button className="delete" onClick={props.onDelete} >Delete</button>
     {/* </form> */}
     </div>
   )
