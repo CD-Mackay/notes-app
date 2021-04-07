@@ -1,40 +1,32 @@
-form {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 40vw;
-}
-
 .editor {
   width: 400px;
   height: 500px;
   border: 1px solid black;
   align-self: center;
   margin: auto;
+  margin-bottom: 40px;
+}
+
+.notes {
+  margin: auto;
 }
 
 .note-wrapper {
   border: 1px solid green;
   max-width: 200px;
+  margin-right: 0;
 }
 
-textarea {
-  width: 40vw;
-  height: 500px;
-  align-self: center;
-}
-
-input {
-  font-size: 34px;
-}
 .save {
   color: #00ff9f;
   background-color: #43464B;
   font-weight: 800;
+  width: 100px;
 }
 
 .delete {
   color: #ff124f;
   background-color: #43464B;
   font-weight: 800;
+  width: 100px;
 }
