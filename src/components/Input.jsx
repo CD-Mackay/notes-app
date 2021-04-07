@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Button from './Button';
-import MyEditor from './Editor';
 
 export default function Input(props) {
   const [state, setState] = useState({
