@@ -8,16 +8,11 @@ export default function MyEditor(props) {
     () => EditorState.createEmpty(),
   );
 
-  const submit = () => {
-    console.log(editorState);
-  }
   return (
-    <div className="editor">
-      {/* <form onSubmit={event => event.preventDefault()}> */}
+    <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} />
-    <button onClick={() => props.onSave(editorState)} >Save</button>
-    <button onClick={props.onDelete} >Delete</button>
-    {/* </form> */}
+    <button className="save" onClick={() => props.onSave(editorState)} >Save</button>
+    <button className="delete" onClick={props.onDelete} >Delete</button>
     </div>
   )
 }
