@@ -8,6 +8,13 @@
   background-color: white;
 }
 
+.header {
+  border: 1px solid black;
+  h1 {
+    margin-top: 0;
+  }
+}
+
 .notes {
   margin: auto;
   border: 1px solid green;
