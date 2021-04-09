@@ -33,9 +33,23 @@
 
 .note-wrapper {
   border: 1px solid green;
-  max-width: 200px;
+  width: 400px;
   margin-right: 0;
 }
+
+.modify {
+  background-color: #43464B;
+  width: 150px;
+  color: #ff6700;
+  font-weight: 800px;
+}
+
+.modify:hover {
+  .hover-text {
+    display: inline;
+  }
+}
+
 
 .save {
   color: #00ff9f;

@@ -11,6 +11,11 @@ export default function NoteListItem(props) {
       Delete
       <p className="hover-text">/&gt; </p>
     </button>
+    <button className="modify">
+    <p className="hover-text">&lt;</p>
+      Edit
+    <p className="hover-text">/&gt; </p>
+    </button>
   </div>
   );
 }
