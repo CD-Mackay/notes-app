@@ -39,13 +39,16 @@
   margin-right: 0;
 }
 
+
+
+
+// Button Stylings
 .modify {
   background-color: $button-background-color;
   width: 150px;
   color: $edit-color;
   font-weight: 800px;
 }
-
 .modify:hover {
   .hover-text {
     display: inline;
@@ -59,7 +62,6 @@
   font-weight: 800;
   width: 150px;
 }
-
 .save:hover {
   .hover-text {
     display: inline;
@@ -72,7 +74,6 @@
   font-weight: 800;
   width: 150px;
 }
-
 .delete:hover {
   .hover-text {
     display: inline;
