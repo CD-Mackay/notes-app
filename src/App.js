@@ -23,9 +23,11 @@ const { saveNote, deleteNote, notes } = useApplicationData();
       <Header />
       {/* <Input onDelete={deleteNote} onSave={saveNote} /> */}
       {/* <Route path="notes/editor"> */}
+      <div className="page-wrapper">
+      <NoteList savedNotes={notes} onDelete={deleteNote} />
       <MyEditor onSave={saveNote} onDelete={deleteNote} />
       {/* </Route> */}
-      <NoteList savedNotes={notes} onDelete={deleteNote} />
+      </div>
     </div>
     </Router>
   );
