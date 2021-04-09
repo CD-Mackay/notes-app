@@ -11,8 +11,16 @@ export default function MyEditor(props) {
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
-    <button className="save" onClick={() => props.onSave(editorState)} >Save</button>
-    <button className="delete" onClick={props.onDelete} >Delete</button>
+    <button className="save" onClick={() => props.onSave(editorState)} >
+    <p className="hover-text">&lt;</p>
+      Save
+      <p className="hover-text">/&gt; </p>
+    </button>
+    <button className="delete" onClick={props.onDelete} >
+      <p className="hover-text">&lt;</p>
+      Delete
+      <p className="hover-text">/&gt; </p>
+      </button>
     </div>
   )
 }
