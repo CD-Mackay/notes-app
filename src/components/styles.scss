@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .editor {
   width: 400px;
   height: 500px;
@@ -38,9 +40,9 @@
 }
 
 .modify {
-  background-color: #43464B;
+  background-color: $button-background-color;
   width: 150px;
-  color: #ff6700;
+  color: $edit-color;
   font-weight: 800px;
 }
 
@@ -52,8 +54,8 @@
 
 
 .save {
-  color: #00ff9f;
-  background-color: #43464B;
+  color: $save-color;
+  background-color: $button-background-color;
   font-weight: 800;
   width: 150px;
 }
@@ -65,8 +67,8 @@
 }
 
 .delete {
-  color: #ff124f;
-  background-color: #43464B;
+  color: $delete-color;
+  background-color: $button-background-color;
   font-weight: 800;
   width: 150px;
 }
