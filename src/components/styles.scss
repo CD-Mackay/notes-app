@@ -18,8 +18,11 @@
 .notes {
   margin: auto;
   border: 1px solid green;
-  max-width: 200px;
+  max-width: 400px;
   background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 600px;
 }
 
 .note-wrapper {
@@ -32,12 +35,12 @@
   color: #00ff9f;
   background-color: #43464B;
   font-weight: 800;
-  width: 100px;
+  width: 150px;
 }
 
 .delete {
   color: #ff124f;
   background-color: #43464B;
   font-weight: 800;
-  width: 100px;
+  width: 150px;
 }
