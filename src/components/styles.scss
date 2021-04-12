@@ -1,5 +1,8 @@
 @import './variables.scss';
 
+.deleted-note {
+  display: none;
+}
 .editor {
   width: 400px;
   height: 500px;
