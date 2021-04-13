@@ -11,8 +11,9 @@ export default function NoteListItem(props) {
   }
 
   const edit = () => {
-    console.log(props.getNote(props.noteId));
-  }
+     const note = props.getNote(props.noteId);
+     console.log(note);
+      }
 
   return (
   <div className={deleted ? "deleted-note" : "note-wrapper"}>
