@@ -14,14 +14,14 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote, deleteNote, notes } = useApplicationData();
+const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
 
   return (
     <Router>
     <div className="App">
       <Header />
       <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} />
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
       <MyEditor onSave={saveNote} onDelete={deleteNote} />
       </div> 
     </div>

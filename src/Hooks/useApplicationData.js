@@ -38,9 +38,13 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
+  function getNoteById(id) {
+    return notes.filter(note => note.id === id);
+  }
+
 
   
-    return { saveNote, deleteNote, notes }
+    return { saveNote, deleteNote, notes, getNoteById }
 }
 
 
