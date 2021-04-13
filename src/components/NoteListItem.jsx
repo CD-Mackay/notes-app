@@ -10,6 +10,10 @@ export default function NoteListItem(props) {
     props.delete(props.noteId);
   }
 
+  const edit = () => {
+    console.log(props.getNote(props.noteId));
+  }
+
   return (
   <div className={deleted ? "deleted-note" : "note-wrapper"}>
     <h4>{props.title}</h4>
@@ -21,7 +25,7 @@ export default function NoteListItem(props) {
       Delete
       <p className="hover-text">/&gt; </p>
     </button>
-    <button className="modify">
+    <button className="modify" onClick={edit} >
     <p className="hover-text">&lt;</p>
       Edit
     <p className="hover-text">/&gt; </p>

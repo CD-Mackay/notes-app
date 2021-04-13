@@ -21,7 +21,7 @@ const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
     <div className="App">
       <Header />
       <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} />
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
       <MyEditor onSave={saveNote} onDelete={deleteNote} />
       </div> 
     </div>
