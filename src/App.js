@@ -14,7 +14,7 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote, deleteNote, notes } = useApplicationData();
+const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
 
   return (
     <Router>
