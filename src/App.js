@@ -16,8 +16,6 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-  const [editorState, setEditorState] = useState([]);
-
 const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
 
 
@@ -28,7 +26,7 @@ const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
       <Header />
       <div className="page-wrapper">
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} />
+      <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} />
       </div> 
     </div>
     </Route>

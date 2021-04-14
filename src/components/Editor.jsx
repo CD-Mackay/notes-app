@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Editor, EditorState} from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
@@ -8,6 +8,11 @@ export default function MyEditor(props) {
     () => EditorState.createEmpty(),
   );
 
+  useEffect(() => {
+    if (props.noteId) {
+      setEditorState(props.getNote(props.nodeId));
+    }
+  }, [])
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
