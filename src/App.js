@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 /// import components
@@ -16,8 +16,10 @@ function App() {
 
 const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
 
+
   return (
     <Router>
+      <Route path="/">
     <div className="App">
       <Header />
       <div className="page-wrapper">
@@ -25,6 +27,16 @@ const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
       <MyEditor onSave={saveNote} onDelete={deleteNote} />
       </div> 
     </div>
+    </Route>
+    <Route path="/notes/:noteID">
+    <div className="App">
+      <Header />
+      <div className="page-wrapper">
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
+      <MyEditor onSave={saveNote} onDelete={deleteNote} />
+      </div> 
+    </div>
+    </Route>
     </Router>
   );
 }
