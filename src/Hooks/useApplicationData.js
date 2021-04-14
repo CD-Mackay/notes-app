@@ -24,7 +24,16 @@ export default function useApplicationData() {
       url: '/notes',
       data: { id }
     }).catch(err => console.log(err));
-  }
+  };
+
+  function updateNote(note) {
+    
+    return axios({
+      method: 'put',
+      url: `notes/${note.id}`,
+      data: { note }
+    }).catch(err => console.log(err));
+  };
 
 
   function saveNote(note) {
@@ -44,7 +53,7 @@ export default function useApplicationData() {
 
 
   
-    return { saveNote, deleteNote, notes, getNoteById }
+    return { saveNote, deleteNote, notes, getNoteById, updateNote }
 }
 
 
