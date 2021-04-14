@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
@@ -12,7 +13,8 @@ export default function NoteListItem(props) {
 
   const edit = () => {
      const note = props.getNote(props.noteId);
-     console.log(note);
+     console.log('edit');
+     return <Redirect to="notes/:noteID" />
       }
 
   return (
