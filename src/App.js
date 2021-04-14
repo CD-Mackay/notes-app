@@ -1,4 +1,5 @@
 import './App.css';
+import { React, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {Editor, EditorState} from 'draft-js';
 
@@ -14,6 +15,8 @@ import Header from './components/Header';
 import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
+
+  const [editorState, setEditorState] = useState([]);
 
 const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
 
