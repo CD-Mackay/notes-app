@@ -1,5 +1,7 @@
 import './App.css';
+import { React, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {Editor, EditorState} from 'draft-js';
 
 
 /// import components
@@ -24,7 +26,7 @@ const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
       <Header />
       <div className="page-wrapper">
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} />
+      <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} />
       </div> 
     </div>
     </Route>
