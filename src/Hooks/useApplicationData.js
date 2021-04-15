@@ -52,9 +52,15 @@ export default function useApplicationData() {
     return notes.filter(note => note.id === id);
   }
 
+  function selectNote(id) {
+    console.log(id);
+    console.log(getNoteById(id));
+    setSelectedNote(getNoteById(id));
+  }
+
 
   
-    return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote }
+    return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
 }
 
 

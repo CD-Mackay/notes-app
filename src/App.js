@@ -16,15 +16,15 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote, deleteNote, notes, getNoteById, selectedNote } = useApplicationData();
+const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = useApplicationData();
 
-const [editorState, setEditorState] = useState(
-  () => EditorState.createEmpty(),
-);
+// const [editorState, setEditorState] = useState(
+//   () => EditorState.createEmpty(),
+// );
 
-if (selectedNote) {
-  setEditorState()
-}
+// if (selectedNote) {
+//   setEditorState()
+// }
 
 
   return (
@@ -33,7 +33,7 @@ if (selectedNote) {
     <div className="App">
       <Header />
       <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
       <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} />
       </div> 
     </div>

@@ -12,9 +12,7 @@ export default function NoteListItem(props) {
   }
 
   const edit = () => {
-     const note = props.getNote(props.noteId);
-     console.log('edit', props.noteId);
-     return <Redirect to="notes/:noteID" />
+     props.onSelect(props.noteId)
       }
 
   return (
