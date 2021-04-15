@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Editor, EditorState} from 'draft-js';
+import {Editor, EditorState, convertToRaw } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 
@@ -8,13 +8,20 @@ export default function MyEditor(props) {
     () => EditorState.createEmpty(),
   );
 
+  console.log(props.selectedNote);
+  const selected = props.selectedNote;
+
   useEffect(() => {
-    if (props.selectedNote) {
+    if (selected) {
       console.log("there is a selected note");
-      setEditorState(props.getNote(props.selectedNote[0].id));
+      console.log(selected[0].note);
+      const noteText = selected[0].note;
+      //const content = convertToRaw(noteText);
+
+      //setEditorState(content);
     }
-  }, []);
-  
+  }, [selected]);
+
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
