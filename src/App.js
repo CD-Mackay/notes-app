@@ -1,7 +1,6 @@
 import './App.css';
 import { React, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import {Editor, EditorState} from 'draft-js';
 
 
 /// import components
@@ -18,13 +17,6 @@ function App() {
 
 const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = useApplicationData();
 
-// const [editorState, setEditorState] = useState(
-//   () => EditorState.createEmpty(),
-// );
-
-// if (selectedNote) {
-//   setEditorState()
-// }
 
 
   return (
@@ -34,7 +26,7 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
       <Header />
       <div className="page-wrapper">
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} />
+      <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
     </div>
     </Route>

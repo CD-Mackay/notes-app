@@ -9,10 +9,12 @@ export default function MyEditor(props) {
   );
 
   useEffect(() => {
-    if (props.noteId) {
-      setEditorState(props.getNote(props.nodeId));
+    if (props.selectedNote) {
+      console.log("there is a selected note");
+      setEditorState(props.getNote(props.selectedNote[0].id));
     }
-  }, [])
+  }, []);
+  
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
