@@ -16,6 +16,8 @@ export default function NoteList(props) {
                            delete={props.onDelete} 
                            text={content} 
                            getNote={props.getNote}
+                           selectedNote={props.selectedNote}
+                           onSelect={props.onSelect}
                            />
       }
 

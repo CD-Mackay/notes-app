@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import {Editor, EditorState} from 'draft-js';
 
 
 export default function useApplicationData() {
 
   const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
+  
 
   useEffect(() => {
     axios({
@@ -51,9 +54,15 @@ export default function useApplicationData() {
     return notes.filter(note => note.id === id);
   }
 
+  function selectNote(id) {
+    console.log(id);
+    console.log(getNoteById(id));
+    setSelectedNote(getNoteById(id));
+  }
+
 
   
-    return { saveNote, deleteNote, notes, getNoteById, updateNote }
+    return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
 }
 
 
