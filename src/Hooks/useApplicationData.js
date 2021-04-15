@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function useApplicationData() {
 
   const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
 
   useEffect(() => {
     axios({
@@ -53,7 +54,7 @@ export default function useApplicationData() {
 
 
   
-    return { saveNote, deleteNote, notes, getNoteById, updateNote }
+    return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote }
 }
 
 

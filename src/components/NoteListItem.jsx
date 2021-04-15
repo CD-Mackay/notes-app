@@ -13,7 +13,7 @@ export default function NoteListItem(props) {
 
   const edit = () => {
      const note = props.getNote(props.noteId);
-     console.log('edit');
+     console.log('edit', props.noteId);
      return <Redirect to="notes/:noteID" />
       }
 

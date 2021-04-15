@@ -16,7 +16,15 @@ import useApplicationData from './Hooks/useApplicationData';
 
 function App() {
 
-const { saveNote, deleteNote, notes, getNoteById } = useApplicationData();
+const { saveNote, deleteNote, notes, getNoteById, selectedNote } = useApplicationData();
+
+const [editorState, setEditorState] = useState(
+  () => EditorState.createEmpty(),
+);
+
+if (selectedNote) {
+  setEditorState()
+}
 
 
   return (

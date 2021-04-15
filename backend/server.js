@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.port || 8080;
+const PORT = process.env.port || 3002;
 const user = process.env.PGUSER || 'connormackay';
 const database = process.env.PGDATABASE || 'notes';
 const bodyParser = require('body-parser');
