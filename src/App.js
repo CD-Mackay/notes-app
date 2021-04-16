@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NoteList from './components/NoteList';
 import MyEditor from './components/Editor';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 
@@ -28,6 +29,7 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
       <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
+      <Footer />
     </div>
     </Route>
     <Route path="/notes/:noteID">
