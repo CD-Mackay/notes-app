@@ -10,6 +10,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 
+// FontAwesome Imports 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCheckSquare, faCoffee)
+
+
+
+
 
 // Import Hooks
 import useApplicationData from './Hooks/useApplicationData';
