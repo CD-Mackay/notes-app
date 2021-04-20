@@ -8,9 +8,12 @@ export default function MyEditor(props) {
     () => EditorState.createEmpty(),
   );
 
-  console.log(props.selectedNote);
   const selected = props.selectedNote;
 
+  const save = () => {
+    props.onSave(editorState);
+    console.log('saved');
+  }
   useEffect(() => {
     if (selected) {
       console.log("there is a selected note");
@@ -25,7 +28,7 @@ export default function MyEditor(props) {
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
-    <button className="save" onClick={() => props.onSave(editorState)} >
+    <button className="save" onClick={save} >
     <p className="hover-text">&lt;</p>
       Save
       <p className="hover-text">/&gt; </p>
