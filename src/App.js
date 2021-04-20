@@ -3,6 +3,10 @@ import { React, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
+// Import Hooks
+import useApplicationData from './Hooks/useApplicationData';
+
+
 /// import components
 import NoteList from './components/NoteList';
 import MyEditor from './components/Editor';
@@ -10,9 +14,17 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 
+// FontAwesome Imports 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab, faGithubSquare } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCheckSquare, faCoffee, faGithubSquare);
 
-// Import Hooks
-import useApplicationData from './Hooks/useApplicationData';
+
+
+
+
+
 
 function App() {
 
