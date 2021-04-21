@@ -19,7 +19,7 @@ export default function MyEditor(props) {
     if (selected) {
       console.log("there is a selected note");
       console.log(selected);
-      //const noteText = convertFromRaw(JSON.parse(content.note._immutable.currentContent));
+      const noteText = convertFromRaw(selected.note);
       //editorState.createWithContent(convertFromRaw(JSON.parse(noteText)));
       //setEditorState(EditorState.createWithContent(noteText));
     } else {
