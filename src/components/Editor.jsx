@@ -21,7 +21,9 @@ export default function MyEditor(props) {
       const noteText = selected[0].note;
       //const content = convertToRaw(noteText);
 
-      //setEditorState(content);
+      //setEditorState(noteText);
+    } else {
+      console.log("no note selected")
     }
   }, [selected]);
 

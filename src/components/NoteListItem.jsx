@@ -12,6 +12,7 @@ export default function NoteListItem(props) {
   }
 
   const edit = () => {
+    console.log('selecting note')
      props.onSelect(props.noteId)
       }
 
