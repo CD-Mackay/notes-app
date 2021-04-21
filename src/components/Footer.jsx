@@ -10,8 +10,11 @@ export default function Footer() {
   return (
     <div className="footer">
       <p>Connor Mackay</p>
-      <FontAwesomeIcon icon={['fas', 'github']} />
-      <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">My Github</a></p>
+      
+
+      <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">My Github
+      <FontAwesomeIcon icon={['fab', 'github-alt']} className="anchor-icon" />
+      </a></p>
     </div>
   )
 }
