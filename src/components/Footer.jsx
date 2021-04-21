@@ -12,7 +12,7 @@ export default function Footer() {
       <p>Connor Mackay</p>
       
 
-      <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">My Github
+      <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">Github
       <FontAwesomeIcon icon={['fab', 'github-alt']} className="anchor-icon" />
       </a></p>
     </div>

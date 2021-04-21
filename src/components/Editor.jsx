@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Editor, EditorState, convertToRaw } from 'draft-js';
+import {Editor, EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 
@@ -19,6 +19,7 @@ export default function MyEditor(props) {
       console.log("there is a selected note");
       console.log(selected[0].note);
       const noteText = selected[0].note;
+      EditorState.createWithContent(convertFromRaw(JSON.parse(noteText)))
       //const content = convertToRaw(noteText);
 
       //setEditorState(noteText);
