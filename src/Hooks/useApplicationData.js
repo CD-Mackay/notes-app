@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {Editor, EditorState} from 'draft-js';
 
 
 export default function useApplicationData() {
@@ -58,8 +57,9 @@ export default function useApplicationData() {
 
   function selectNote(id) {
     console.log(id);
-    console.log(getNoteById(id));
-    setSelectedNote(getNoteById(id));
+    const note = getNoteById(id);
+    const selected = note.shift();
+    setSelectedNote(selected);
   }
 
 
