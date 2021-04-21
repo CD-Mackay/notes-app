@@ -1,5 +1,5 @@
 import React, { useEffect, componentDidMount } from 'react';
-import {Editor, EditorState, convertToRaw, convertFromRaw } from 'draft-js';
+import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 
@@ -18,11 +18,12 @@ export default function MyEditor(props) {
   useEffect(() => {
     if (selected) {
       console.log("there is a selected note");
-      console.log(selected[0].note);
-      const noteText = selected[0].note;
+      console.log(selected);
+      //const noteText = convertFromRaw(JSON.parse(content.note._immutable.currentContent));
       //editorState.createWithContent(convertFromRaw(JSON.parse(noteText)));
+      //setEditorState(EditorState.createWithContent(noteText));
     } else {
-      console.log("no note selected")
+      console.log("no note selected");
     }
   });
 
