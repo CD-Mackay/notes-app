@@ -43,6 +43,13 @@ app.get('/notes', (req, res) => {
   })
 });
 
+app.get('/editor/notes', (req, res) => {
+  pool.query(`SELECT * FROM notes;`)
+  .then(data => {
+    res.json(data.rows);
+  })
+});
+
 app.post('/notes', (req, res) => {
   console.log(req.body.note);
   pool.query("INSERT INTO notes(note) VALUES ($1);", [req.body.note])
