@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
   const [deleted, setDeleted] = useState(false);
+  const history = useHistory();
+
 
   const remove = () => {
     setDeleted(true);
@@ -13,7 +15,8 @@ export default function NoteListItem(props) {
 
   const edit = () => {
     console.log('selecting note')
-     props.onSelect(props.noteId)
+     props.onSelect(props.noteId);
+     history.push(`/editor/${props.noteId}`);
       }
 
   return (
