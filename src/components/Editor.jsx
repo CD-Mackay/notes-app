@@ -19,8 +19,8 @@ export default function MyEditor(props) {
     if (selected) {
       console.log("there is a selected note");
       console.log(selected);
-      const noteText = convertFromRaw(selected.note);
-      //editorState.createWithContent(convertFromRaw(JSON.parse(noteText)));
+      //const noteText = convertFromRaw(selected.note);
+      editorState.createWithContent(convertFromRaw(JSON.parse(selected.note)));
       //setEditorState(EditorState.createWithContent(noteText));
     } else {
       console.log("no note selected");

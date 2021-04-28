@@ -44,12 +44,12 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
       <Footer />
     </div>
     </Route>
-    <Route path="/notes/:noteID">
+    <Route path="/editor/:noteID">
     <div className="App">
       <Header />
       <div className="page-wrapper">
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} />
+      <MyEditor onSave={saveNote} onDelete={deleteNote} selectedNote={selectedNote} />
       </div> 
     </div>
     </Route>
