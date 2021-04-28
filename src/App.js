@@ -34,25 +34,22 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
 
   return (
     <Router>
-      <Route path="/">
-    <div className="App">
-      <Header />
+      <div className="App">
+    <Header />
+      <Route path="/home">
       <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
-      </div> 
-      <Footer />
-    </div>
+        <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
+        <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+      </div>  
     </Route>
     <Route path="/editor/:noteID">
-    <div className="App">
-      <Header />
       <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} />
-      <MyEditor onSave={saveNote} onDelete={deleteNote} selectedNote={selectedNote} />
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
+        <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
-    </div>
     </Route>
+    <Footer />
+    </div>
     </Router>
   );
 }
