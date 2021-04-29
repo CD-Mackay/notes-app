@@ -32,7 +32,7 @@ export default function MyEditor(props) {
     } else {
       console.log("no note selected");
     }
-  });
+  }, [selected]);
 
   return (
     <div className="editor"> 
