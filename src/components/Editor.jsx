@@ -5,23 +5,30 @@ import './styles.scss';
 
 export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
-    () => EditorState.createEmpty(),
+    () => EditorState.createEmpty()
   );
 
   const selected = props.selectedNote;
 
-  const save = () => {
-    props.onSave(editorState);
-    console.log('saved');
-  }
+  const onChange = (incState) => {
+    setEditorState(incState);
+  };
+
+  const save = (incState) => {
+    console.log("EDITORSTATE!!!", incState);
+    const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
+    props.onSave(convertedState);
+    console.log('saved', convertedState);
+  };
 
   useEffect(() => {
     if (selected) {
       console.log("there is a selected note");
       console.log(selected);
-      //const noteText = convertFromRaw(selected.note);
-      //EditorState.createWithContent(selected.note);
-      setEditorState(EditorState.createWithContent((selected.note)));
+      const noteToEdit = selected.note
+      const selectedNote = EditorState.createWithContent(convertFromRaw(JSON.parse(JSON.stringify(noteToEdit))));
+      console.log(selectedNote);
+      setEditorState(selectedNote);
     } else {
       console.log("no note selected");
     }
@@ -30,7 +37,7 @@ export default function MyEditor(props) {
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
-    <button className="save" onClick={save} >
+    <button className="save" onClick={() => save(editorState)} >
     <p className="hover-text">&lt;</p>
       Save
       <p className="hover-text">/&gt; </p>

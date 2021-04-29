@@ -36,7 +36,7 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
     <Router>
       <div className="App">
     <Header />
-      <Route path="/home">
+      <Route path="/">
       <div className="page-wrapper">
         <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
         <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
