@@ -1,6 +1,6 @@
 import './App.css';
 import { React } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 // Import Hooks
@@ -36,7 +36,8 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
     <Router>
       <div className="App">
     <Header />
-      <Route path="/home">
+    <Switch>
+      <Route path="/">
       <div className="page-wrapper">
         <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
         <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
@@ -48,7 +49,8 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote } = u
         <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
     </Route>
-    <Footer />
+    </Switch>
+    {/* <Footer /> */}
     </div>
     </Router>
   );
