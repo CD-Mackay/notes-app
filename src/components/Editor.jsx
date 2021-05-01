@@ -1,4 +1,4 @@
-import React, { useEffect, componentDidMount } from 'react';
+import React, { useEffect, componentDidMount, useState } from 'react';
 import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
@@ -7,6 +7,7 @@ export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
+  const [title, setTitle] = useState("");
 
   const selected = props.selectedNote;
 
@@ -42,6 +43,7 @@ export default function MyEditor(props) {
 
   return (
     <div className="editor"> 
+    <input type="text" placeholder="note title"></input>
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>
