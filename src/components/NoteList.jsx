@@ -9,7 +9,7 @@ export default function NoteList(props) {
       return <NoteListItem content={note.note}
                            noteId={note.id} 
                            key={note.id} 
-                           title={note.note.title} 
+                           title={note.title} 
                            delete={props.onDelete} 
                            getNote={props.getNote}
                            selectedNote={props.selectedNote}

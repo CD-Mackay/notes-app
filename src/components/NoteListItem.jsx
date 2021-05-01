@@ -19,9 +19,8 @@ export default function NoteListItem(props) {
 
   return (
   <div className="note-wrapper">
-    <h4>{props.noteId}</h4>
-    {props.text && <span>{props.text}</span>}
-    {/* {!props.text && <span>Untitled</span>} */}
+    {props.title && <span>{props.title}</span>}
+    {!props.title && <span>Untitled</span>}
     <div className="button-wrapper">
     <button className="delete" onClick={() => remove()}>
     <p className="hover-text">&lt;</p>
