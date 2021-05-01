@@ -1,4 +1,4 @@
-import React, { useEffect, componentDidMount } from 'react';
+import React, { useEffect, componentDidMount, useState } from 'react';
 import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
@@ -7,17 +7,17 @@ export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
+  const [title, setTitle] = useState("");
 
   const selected = props.selectedNote;
 
-  const onChange = (incState) => {
-    setEditorState(incState);
-  };
+
+  const handleTitleChange = event => setTitle(event.currentTarget.value);
 
   const save = (incState) => {
     console.log("EDITORSTATE!!!", incState);
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    props.onSave(convertedState);
+    props.onSave(convertedState, title);
     console.log('saved', convertedState);
   };
 
@@ -35,6 +35,7 @@ export default function MyEditor(props) {
       const selectedNote = EditorState.createWithContent(convertFromRaw(JSON.parse(JSON.stringify(noteToEdit))));
       console.log(selectedNote);
       setEditorState(selectedNote);
+      setTitle(selected.title)
     } else {
       console.log("no note selected");
     }
@@ -42,6 +43,7 @@ export default function MyEditor(props) {
 
   return (
     <div className="editor"> 
+    <input type="text" placeholder="note title" value={selected ? selected.title : ""} onChange={handleTitleChange} ></input>
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>
