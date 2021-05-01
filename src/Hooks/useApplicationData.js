@@ -21,6 +21,9 @@ export default function useApplicationData() {
 
 
   function deleteNote(id) {
+    const updatedNotes = notes.filter(note => note.id !== id);
+    setNotes(updatedNotes);
+
     return axios({
       method: 'delete',
       url: '/notes',
