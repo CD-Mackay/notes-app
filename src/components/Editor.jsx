@@ -24,7 +24,7 @@ export default function MyEditor(props) {
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     console.log('updated', convertedState);
-    props.onEdit(convertedState, selected.id);
+    props.onEdit(convertedState, selected.id, title);
   }
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function MyEditor(props) {
 
   return (
     <div className="editor"> 
-    <input type="text" placeholder="note title" value={selected ? selected.title : ""} onChange={handleTitleChange} ></input>
+    <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} ></input>
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>

@@ -31,13 +31,16 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
-  function updateNote(note, id) {
+  function updateNote(note, id, title) {
     console.log(note);
-    
+    const updatedNote = {
+      note: note,
+      title: title
+    }
     return axios({
       method: 'put',
       url: `notes/${id}`,
-      data: { note }
+      data: { updatedNote }
     }).catch(err => console.log(err));
   };
 
