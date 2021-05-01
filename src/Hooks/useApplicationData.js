@@ -28,11 +28,12 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
-  function updateNote(note) {
+  function updateNote(note, id) {
+    console.log(note);
     
     return axios({
       method: 'put',
-      url: `notes/${note.id}`,
+      url: `notes/${id}`,
       data: { note }
     }).catch(err => console.log(err));
   };

@@ -21,6 +21,12 @@ export default function MyEditor(props) {
     console.log('saved', convertedState);
   };
 
+  const update = (incState) => {
+    const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
+    console.log('updated', convertedState);
+    props.onEdit(convertedState, selected.id);
+  }
+
   useEffect(() => {
     if (selected) {
       console.log("there is a selected note");
@@ -37,7 +43,7 @@ export default function MyEditor(props) {
   return (
     <div className="editor"> 
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
-    <button className="save" onClick={() => save(editorState)} >
+    <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>
       Save
       <p className="hover-text">/&gt; </p>

@@ -65,9 +65,9 @@ app.delete('/notes', (req, res) => {
 });
 
 app.put('/notes/:noteID', (req, res) => {
+  console.log("note content? ", req.body);
   let noteID = req.params.noteID;
-
-  pool.query('UPDATES notes SET note = $1 where note_id = $2', [ req.body, noteID])
+  pool.query('UPDATE notes SET note = $1 where id = $2', [ req.body.note, noteID])
   .then(res => console.log(res.command))
   .catch(err => console.log(err));
 });
