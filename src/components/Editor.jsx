@@ -43,7 +43,9 @@ export default function MyEditor(props) {
 
   return (
     <div className="editor"> 
-    <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} ></input>
+     <div className="title-wrapper">
+    <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
+    </div>
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>
