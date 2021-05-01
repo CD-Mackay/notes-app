@@ -3,12 +3,10 @@ import { Redirect, useHistory } from 'react-router-dom';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
-  const [deleted, setDeleted] = useState(false);
   const history = useHistory();
 
 
   const remove = () => {
-    setDeleted(true);
     console.log('setState!')
     props.delete(props.noteId);
   }
@@ -20,7 +18,7 @@ export default function NoteListItem(props) {
       }
 
   return (
-  <div className={deleted ? "deleted-note" : "note-wrapper"}>
+  <div className="note-wrapper">
     <h4>{props.noteId}</h4>
     {props.text && <span>{props.text}</span>}
     {/* {!props.text && <span>Untitled</span>} */}
