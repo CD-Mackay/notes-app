@@ -16,7 +16,7 @@ export default function NoteListItem(props) {
   const edit = () => {
     console.log('selecting note')
      props.onSelect(props.noteId);
-     history.push(`/editor/${props.noteId}`);
+     history.push(`/${props.noteId}`);
       }
 
   return (

@@ -23,6 +23,7 @@ export default function MyEditor(props) {
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
+    console.log('updated', convertedState);
     props.onEdit(convertedState, selected.id);
   }
 
