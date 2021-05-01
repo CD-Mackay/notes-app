@@ -42,16 +42,22 @@ export default function useApplicationData() {
   };
 
 
-  function saveNote(note) {
+  function saveNote(note, title) {
     console.log('saving in hooks!')
     console.log(note);
 
-    setNotes([...notes, note]);
+    const savedNote = {
+      title: title,
+      note: note
+    }
+
+    console.log(savedNote);
+    setNotes([...notes, savedNote]);
     
     return axios({
       method: 'post',
       url: '/notes',
-      data: { note }
+      data: { savedNote }
     }).catch(err => console.log(err));
   };
 
