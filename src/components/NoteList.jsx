@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import NoteListItem from './NoteListItem';
 import './styles.scss';
 
 export default function NoteList(props) {
-  const [notes, setNotes] = useState(props.savedNotes);
-
 
     const parsedNotes = props.savedNotes.map(note => {
       if (note.note) {
