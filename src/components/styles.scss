@@ -20,6 +20,9 @@
   margin: auto;
   margin-bottom: 40px;
   background-color: white;
+  input {
+    width: 100%;
+  }
 }
 
 .footer {
@@ -60,6 +63,13 @@
   border: 1px solid green;
   width: 400px;
   margin-right: 0;
+  span {
+    line-height: 2;
+  }
+}
+
+.title-wrapper {
+  margin-bottom: 20px;
 }
 
 
