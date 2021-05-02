@@ -50,7 +50,7 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote, upda
       </div> 
     </Route>
     </Switch>
-    {/* <Footer /> */}
+    <Footer />
     </div>
     </Router>
   );
