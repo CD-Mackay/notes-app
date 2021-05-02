@@ -16,9 +16,9 @@ import Footer from './components/Footer';
 
 // FontAwesome Imports 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab, faGithubAlt, } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee,  } from '@fortawesome/free-solid-svg-icons'
-library.add(fab, faCheckSquare, faCoffee, faGithubAlt,);
+import { fab, faGithubAlt, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee, faEnvelope, faEnvelopeOpen,faPhone } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faCheckSquare, faCoffee, faGithubAlt, faLinkedinIn, faEnvelope, faEnvelopeOpen, faPhone);
 
 
 
@@ -50,7 +50,7 @@ const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote, upda
       </div> 
     </Route>
     </Switch>
-    {/* <Footer /> */}
+    <Footer />
     </div>
     </Router>
   );
