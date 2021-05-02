@@ -9,9 +9,7 @@ export default function Footer() {
   
   return (
     <div className="footer">
-      <p>Connor Mackay</p>
-      
-
+      <h4>Connor Mackay</h4>
       <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">Github
       <FontAwesomeIcon icon={['fab', 'github-alt']} className="anchor-icon" />
       </a></p>
