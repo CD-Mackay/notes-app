@@ -25,7 +25,7 @@ export default function ButtonList(props) {
   ];
 
   const styleButtons = inlineStyleButtons.map((button) => {
-    return <InlineStyleButtons style={button.style} setStyle={props.toggleInlineStyle} icon={button.value} />
+    return <InlineStyleButtons key={button.style} style={button.style} setStyle={props.toggleInlineStyle} icon={button.value} />
   })
 
   return (

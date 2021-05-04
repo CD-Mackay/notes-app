@@ -44,7 +44,6 @@ export default function MyEditor(props) {
 
   const toggleInlineStyle = (event) => {
     event.preventDefault();
-
     const style = event.currentTarget.getAttribute('data-style');
     setEditorState(RichUtils.toggleInlineStyle(editorState, style));
   };
