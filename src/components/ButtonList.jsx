@@ -13,8 +13,15 @@ export default function ButtonList(props) {
     {
       style: 'ITALIC',
       value: <FaItalic />
+    },
+    {
+      style: 'UNDERLINE',
+      value: <FaUnderline />
+    },
+    {
+      style: 'STRIKETHROUGH',
+      value: <FaStrikethrough />
     }
-
   ];
 
   const styleButtons = inlineStyleButtons.map((button) => {
