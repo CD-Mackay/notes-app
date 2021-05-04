@@ -3,24 +3,7 @@ import { FaItalic, FaBold, FaUnderline, FaStrikethrough, FaCode } from 'react-ic
 
 
 export default function InlineStyleButtons(props) {
-
-  const inlineStyleButtons = [
-    {
-      style: 'Bold',
-      value: <FaBold />
-    },
-    {
-      style: 'ITALIC',
-      value: <FaItalic />
-    }
-
-  ];
-  return inlineStyleButtons.map((button) => {
-    <InlineStyleButtons 
-    key={button.style}
-    onMouseDown={props.toggleInlineStyle}
-    >
-      {button.style}
-    </InlineStyleButtons>
-  })
+  return (
+    <button onMouseDown={props.setStyle} style={props.key}>{props.style}</button>
+  )
 }
