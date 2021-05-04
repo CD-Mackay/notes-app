@@ -52,7 +52,9 @@ export default function MyEditor(props) {
 
   return (
     <div className="editor"> 
+    <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
+    </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
     </div>

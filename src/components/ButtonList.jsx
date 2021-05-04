@@ -7,7 +7,7 @@ export default function ButtonList(props) {
 
   const inlineStyleButtons = [
     {
-      style: 'Bold',
+      style: 'BOLD',
       value: <FaBold />
     },
     {
@@ -17,12 +17,13 @@ export default function ButtonList(props) {
 
   ];
 
-  return inlineStyleButtons.map((button) => {
-    <InlineStyleButtons 
-    key={button.style}
-    setStyle={props.toggleInlineStyle}
-    >
-      {button.style}
-    </InlineStyleButtons>
+  const styleButtons = inlineStyleButtons.map((button) => {
+    return <InlineStyleButtons style={button.style} setStyle={props.toggleInlineStyle} icon={button.value} />
   })
+
+  return (
+    <div className="button-burrito">
+      {styleButtons}
+    </div>
+  )
 }
