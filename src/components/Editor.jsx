@@ -1,7 +1,8 @@
 import React, { useEffect, componentDidMount, useState } from 'react';
-import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState } from 'draft-js';
+import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState, RichUtils } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
+import ButtonList from './ButtonList';
 
 export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
@@ -41,8 +42,19 @@ export default function MyEditor(props) {
     }
   }, [selected]);
 
+  const toggleInlineStyle = (event) => {
+    event.preventDefault();
+
+    const style = event.currentTarget.getAttribute('data-style');
+    setEditorState(RichUtils.toggleInlineStyle(editorState, style));
+  };
+
+
   return (
     <div className="editor"> 
+    <div className="buttons">
+    <ButtonList toggleInlineStyle={toggleInlineStyle} />
+    </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
     </div>
