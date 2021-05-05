@@ -21,14 +21,17 @@ import { faCheckSquare, faCoffee, faEnvelope, faEnvelopeOpen,faPhone } from '@fo
 library.add(fab, faCheckSquare, faCoffee, faGithubAlt, faLinkedinIn, faEnvelope, faEnvelopeOpen, faPhone);
 
 
-
-
-
-
-
 function App() {
 
-const { saveNote, deleteNote, notes, getNoteById, selectedNote, selectNote, updateNote } = useApplicationData();
+const { 
+        saveNote,
+        deleteNote, 
+        notes, 
+        getNoteById,
+        selectedNote, 
+        selectNote, 
+        updateNote 
+      } = useApplicationData();
 
 
 
