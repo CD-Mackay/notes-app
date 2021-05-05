@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteListItem from './NoteListItem';
 import './styles.scss';
+import './Notelist.scss';
 
 export default function NoteList(props) {
 

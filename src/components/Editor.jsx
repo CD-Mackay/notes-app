@@ -2,6 +2,7 @@ import React, { useEffect, componentDidMount, useState } from 'react';
 import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState, RichUtils } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
+import './Editor.scss';
 import ButtonList from './ButtonList';
 
 export default function MyEditor(props) {
