@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+.notes {
+  border: 1px solid green;
+  max-width: 400px;
+  min-width: 400px;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.note-wrapper {
+  border: 1px solid green;
+  width: 400px;
+  margin-right: 0;
+  span {
+    line-height: 2.5;
+  }
+}
