@@ -4,29 +4,34 @@ import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
+import CategoryButtons from './CategoryButtons';
 
 export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState(null);
 
   const selected = props.selectedNote;
 
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
+  const chooseCategory = (event) => {
+    setCategory(event.target.value);
+  }
   const save = (incState) => {
     console.log("EDITORSTATE!!!", incState);
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    props.onSave(convertedState, title);
+    props.onSave(convertedState, category, title);
     console.log('saved', convertedState);
   };
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     console.log('updated', convertedState);
-    props.onEdit(convertedState, selected.id, title);
+    props.onEdit(convertedState, selected.id, title, category);
   }
 
   useEffect(() => {
@@ -54,6 +59,7 @@ export default function MyEditor(props) {
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
+    <CategoryButtons onSelect={chooseCategory} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
