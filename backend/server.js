@@ -52,7 +52,7 @@ app.get('/editor/notes', (req, res) => {
 
 app.post('/notes', (req, res) => {
   console.log(req.body);
-  pool.query("INSERT INTO notes(note, title) VALUES ($1, $2);", [req.body.savedNote.note, req.body.savedNote.title])
+  pool.query("INSERT INTO notes(note, title, category) VALUES ($1, $2, $3);", [req.body.savedNote.note, req.body.savedNote.title, req.body.savedNote.category])
   .then(res => console.log(res))
   .catch(err => console.log(err));
 });
@@ -66,7 +66,7 @@ app.delete('/notes', (req, res) => {
 app.put('/notes/:noteID', (req, res) => {
   console.log("note content? ", req.body);
   let noteID = req.params.noteID;
-  pool.query('UPDATE notes SET note = $1, title = $2 where id = $3', [ req.body.updatedNote.note, req.body.updatedNote.title, noteID])
+  pool.query('UPDATE notes SET note = $1, title = $2, category = $3 where id = $4', [ req.body.updatedNote.note, req.body.updatedNote.title, req.body.updatedNote.category, noteID])
   .then(res => console.log(res.command))
   .catch(err => console.log(err));
 });
