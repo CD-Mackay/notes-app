@@ -30,7 +30,8 @@ const {
         getNoteById,
         selectedNote, 
         selectNote, 
-        updateNote
+        updateNote,
+        getAllNotes
       } = useApplicationData();
 
 

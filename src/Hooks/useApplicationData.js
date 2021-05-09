@@ -9,26 +9,28 @@ export default function useApplicationData() {
   
 
   useEffect(() => {
+   getAllNotes();
+  }, []);
+
+  function getAllNotes() {
     axios({
       method: 'get',
-      url: 'notes'
+      url: '/notes'
     })
     .then(res => {
       setNotes(res.data);
     })
     .catch(err => console.log(err));
-  }, []);
+  };
 
 
   function deleteNote(id) {
-    const updatedNotes = notes.filter(note => note.id !== id);
-    setNotes(updatedNotes);
-
-    return axios({
+  axios({
       method: 'delete',
-      url: '/notes',
-      data: { id }
-    }).catch(err => console.log(err));
+      url: `/notes/${id}`
+    })
+    .then(getAllNotes())
+    .catch(err => console.log(err));
   };
 
   function updateNote(note, id, title, category) {
@@ -56,14 +58,13 @@ export default function useApplicationData() {
       note: note
     }
 
-    console.log(savedNote);
-    setNotes([...notes, savedNote]);
-    
-    return axios({
+    axios({
       method: 'post',
       url: '/notes',
       data: { savedNote }
-    }).catch(err => console.log(err));
+    })
+    .then(getAllNotes())
+    .catch(err => console.log(err));
   };
 
   function getNoteById(id) {
@@ -78,7 +79,7 @@ export default function useApplicationData() {
   }
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
+  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote,getAllNotes, setNotes }
 }
 
 

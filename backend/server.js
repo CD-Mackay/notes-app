@@ -57,8 +57,9 @@ app.post('/notes', (req, res) => {
   .catch(err => console.log(err));
 });
 
-app.delete('/notes', (req, res) => {
-  pool.query('DELETE FROM notes WHERE id = $1', [req.body.id])
+app.delete(`/notes/:noteID`, (req, res) => {
+  let noteID = req.params.noteID;
+  pool.query(`DELETE FROM notes WHERE id = ${noteID};`)
   .then(res => console.log(res.command))
   .catch(err => console.log(err));
 });
@@ -66,7 +67,7 @@ app.delete('/notes', (req, res) => {
 app.put('/notes/:noteID', (req, res) => {
   console.log("note content? ", req.body);
   let noteID = req.params.noteID;
-  pool.query('UPDATE notes SET note = $1, title = $2, category = $3 where id = $4', [ req.body.updatedNote.note, req.body.updatedNote.title, req.body.updatedNote.category, noteID])
+  pool.query('UPDATE notes SET note = $1, title = $2, category = $3 where id = $4;', [ req.body.updatedNote.note, req.body.updatedNote.title, req.body.updatedNote.category, noteID])
   .then(res => console.log(res.command))
   .catch(err => console.log(err));
 });

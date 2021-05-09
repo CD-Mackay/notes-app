@@ -3,6 +3,7 @@ import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState, Ri
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 import './Editor.scss';
+import useApplicationData from '../Hooks/useApplicationData';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 
@@ -14,6 +15,8 @@ export default function MyEditor(props) {
   const [saveCategory, setSaveCategory] = useState(null);
 
   const selected = props.selectedNote;
+
+  const { getAllNotes, setNotes } = useApplicationData();
 
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
@@ -31,7 +34,7 @@ export default function MyEditor(props) {
     console.log("EDITORSTATE!!!", incState);
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
-    console.log('saved', convertedState);
+    
   };
 
   const update = (incState) => {
