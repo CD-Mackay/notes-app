@@ -36,8 +36,9 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
-      {/* <CategoryButtons whereAreTheButton={"notesButtons"} onSelect={chooseViewCategory} lastCat={"all"} /> */}
       <ViewCategories whereAreTheButton={"notesButtons"} onSelect={chooseViewCategory} lastCat={"all"} />
+      {viewCategory && <p>Category: {viewCategory}</p>}
+      {!viewCategory && <p>Category: all</p>}
       { parsedNotes }
     </div>
   );
