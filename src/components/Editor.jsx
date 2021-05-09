@@ -19,8 +19,13 @@ export default function MyEditor(props) {
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
   const chooseSaveCategory = (event) => {
+    if (event.target.value == "none") {
+      setSaveCategory(null);
+    } else {
     setSaveCategory(event.target.value);
+    }
   }
+
   
   const save = (incState) => {
     console.log("EDITORSTATE!!!", incState);
