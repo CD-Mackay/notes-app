@@ -9,15 +9,19 @@ export default function useApplicationData() {
   
 
   useEffect(() => {
+   getAllNotes();
+  }, []);
+
+  function getAllNotes() {
     axios({
       method: 'get',
-      url: 'notes'
+      url: '/notes'
     })
     .then(res => {
       setNotes(res.data);
     })
     .catch(err => console.log(err));
-  }, []);
+  };
 
 
   function deleteNote(id) {
@@ -56,14 +60,14 @@ export default function useApplicationData() {
       note: note
     }
 
-    console.log(savedNote);
-    setNotes([...notes, savedNote]);
-    
-    return axios({
+    console.log("line 64!!!:", savedNote);
+    axios({
       method: 'post',
       url: '/notes',
       data: { savedNote }
-    }).catch(err => console.log(err));
+    })
+    .then(getAllNotes())
+    .catch(err => console.log(err));
   };
 
   function getNoteById(id) {
@@ -78,7 +82,7 @@ export default function useApplicationData() {
   }
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
+  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote,getAllNotes, setNotes }
 }
 
 
