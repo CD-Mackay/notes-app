@@ -79,7 +79,7 @@ export default function useApplicationData() {
   }
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
+  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote, category, setCategory }
 }
 
 
