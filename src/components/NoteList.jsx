@@ -9,7 +9,11 @@ export default function NoteList(props) {
   const [category, setCategory] = useState(null);
 
   const chooseCategory = (event) => {
-    setCategory(event.target.value);
+    if (event.target.value == "all") {
+      setCategory(null);
+    } else {
+      setCategory(event.target.value);
+    }
   }
 
     const parsedNotes = props.savedNotes
@@ -30,7 +34,7 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
-      <CategoryButtons onSelect={chooseCategory} />
+      <CategoryButtons onSelect={chooseCategory} lastCat={"all"} />
       { parsedNotes }
     </div>
   );
