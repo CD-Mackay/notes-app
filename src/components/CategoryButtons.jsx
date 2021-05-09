@@ -11,6 +11,8 @@ export default function CategoryButtons(props) {
       <input type="radio" id="personal" name="category" value="personal"></input>
       <label for="hobbies">hobbies</label>
       <input type="radio" id="hobbies" name="category" value="hobbies"></input>
+      <label for={props.lastCat}>{props.lastCat}</label>
+      <input type="radio" id={props.lastCat} name="category" value={props.lastCat}></input>
       </div>
    
   )

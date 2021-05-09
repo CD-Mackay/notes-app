@@ -13,7 +13,7 @@ export default function NoteList(props) {
   }
 
     const parsedNotes = props.savedNotes
-    .filter(note => {if (category) {return note.category == category }})
+    .filter (note => note.category == category || category == null )
     .map(note => {
       if (note.note) {
       return <NoteListItem content={note.note}
