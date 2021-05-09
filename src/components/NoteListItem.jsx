@@ -6,11 +6,6 @@ export default function NoteListItem(props) {
   const history = useHistory();
 
 
-  const remove = () => {
-    console.log('setState!')
-    props.delete(props.noteId);
-  }
-
   const edit = () => {
     console.log('selecting note')
      props.onSelect(props.noteId);
@@ -22,7 +17,7 @@ export default function NoteListItem(props) {
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
     <div className="button-wrapper">
-    <button className="delete" onClick={() => remove()}>
+    <button className="delete" onClick={() => props.delete(props.noteId)}>
     <p className="hover-text">&lt;</p>
       Delete
       <p className="hover-text">/&gt; </p>
