@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NoteListItem from './NoteListItem';
 import './styles.scss';
 import './Notelist.scss';
@@ -6,8 +6,15 @@ import CategoryButtons from './CategoryButtons';
 
 
 export default function NoteList(props) {
+  const [category, setCategory] = useState(null);
 
-    const parsedNotes = props.savedNotes.map(note => {
+  const chooseCategory = (event) => {
+    setCategory(event.target.value);
+  }
+
+    const parsedNotes = props.savedNotes
+    .filter(note => {if (category) {return note.category == category }})
+    .map(note => {
       if (note.note) {
       return <NoteListItem content={note.note}
                            noteId={note.id} 
@@ -23,6 +30,7 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
+      <CategoryButtons onSelect={chooseCategory} />
       { parsedNotes }
     </div>
   );
