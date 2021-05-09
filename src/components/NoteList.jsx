@@ -34,7 +34,7 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
-      <CategoryButtons onSelect={chooseCategory} lastCat={"all"} />
+      <CategoryButtons whereAreTheButton={"notesButtons"} onSelect={chooseCategory} lastCat={"all"} />
       { parsedNotes }
     </div>
   );
