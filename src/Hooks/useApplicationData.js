@@ -6,7 +6,6 @@ export default function useApplicationData() {
 
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
-  const [category, setCategory] = useState(null);
   
 
   useEffect(() => {
@@ -79,7 +78,7 @@ export default function useApplicationData() {
   }
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote, category, setCategory }
+  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote }
 }
 
 

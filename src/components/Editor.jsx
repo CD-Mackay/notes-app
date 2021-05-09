@@ -11,27 +11,28 @@ export default function MyEditor(props) {
     () => EditorState.createEmpty()
   );
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState(null);
+  const [saveCategory, setSaveCategory] = useState(null);
 
   const selected = props.selectedNote;
 
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
-  const chooseCategory = (event) => {
-    setCategory(event.target.value);
+  const chooseSaveCategory = (event) => {
+    setSaveCategory(event.target.value);
   }
+  
   const save = (incState) => {
     console.log("EDITORSTATE!!!", incState);
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    props.onSave(convertedState, category, title);
+    props.onSave(convertedState, saveCategory, title);
     console.log('saved', convertedState);
   };
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     console.log('updated', convertedState);
-    props.onEdit(convertedState, selected.id, title, category);
+    props.onEdit(convertedState, selected.id, title, saveCategory);
   }
 
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function MyEditor(props) {
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
-    <CategoryButtons whereAreTheButton={"editButtons"}onSelect={chooseCategory} lastCat={"none"} />
+    <CategoryButtons whereAreTheButton={"editButtons"} onSelect={chooseSaveCategory} lastCat={"none"} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />

@@ -3,21 +3,22 @@ import NoteListItem from './NoteListItem';
 import './styles.scss';
 import './Notelist.scss';
 import CategoryButtons from './CategoryButtons';
+import ViewCategories from './ViewCategories';
 
 
 export default function NoteList(props) {
-  const [category, setCategory] = useState(null);
+  const [viewCategory, setViewCategory] = useState(null);
 
-  const chooseCategory = (event) => {
+  const chooseViewCategory = (event) => {
     if (event.target.value == "all") {
-      setCategory(null);
+      setViewCategory(null);
     } else {
-      setCategory(event.target.value);
+      setViewCategory(event.target.value);
     }
   }
 
     const parsedNotes = props.savedNotes
-    .filter (note => note.category == category || category == null )
+    .filter (note => note.category == viewCategory || viewCategory == null )
     .map(note => {
       if (note.note) {
       return <NoteListItem content={note.note}
@@ -34,7 +35,8 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
-      <CategoryButtons whereAreTheButton={"notesButtons"} onSelect={chooseCategory} lastCat={"all"} />
+      {/* <CategoryButtons whereAreTheButton={"notesButtons"} onSelect={chooseViewCategory} lastCat={"all"} /> */}
+      <ViewCategories whereAreTheButton={"notesButtons"} onSelect={chooseViewCategory} lastCat={"all"} />
       { parsedNotes }
     </div>
   );
