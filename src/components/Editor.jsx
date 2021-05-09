@@ -71,6 +71,7 @@ export default function MyEditor(props) {
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
     </div>
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
+    <div className="save-delete-wrapper">
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
     <p className="hover-text">&lt;</p>
       Save
@@ -81,6 +82,7 @@ export default function MyEditor(props) {
       Delete
       <p className="hover-text">/&gt; </p>
       </button>
+      </div>
     </div>
   )
 }
