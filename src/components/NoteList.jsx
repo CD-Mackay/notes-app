@@ -10,6 +10,7 @@ export default function NoteList(props) {
   const [viewCategory, setViewCategory] = useState(null);
 
   const chooseViewCategory = (event) => {
+    console.log("clicked in the noteslist component")
     if (event.target.value == "all") {
       setViewCategory(null);
     } else {

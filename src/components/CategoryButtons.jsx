@@ -4,7 +4,7 @@ import './Categorystyles.scss';
 export default function CategoryButtons(props) {
 
   return (
-    <div className={props.whereAreTheButton} onChange={props.onSelect}>
+    <div className="editButtons" onChange={props.onSelectCategory}>
       <div className="cat-button-wrapper">
         <label for="work">work</label>
         <input type="radio" id="work" name="category" value="work" ></input>

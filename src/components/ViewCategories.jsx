@@ -4,7 +4,7 @@ import './Categorystyles.scss';
 export default function ViewCategories(props) {
 
   return (
-    <div className={props.whereAreTheButton} onChange={props.onSelect}>
+    <div className="notesButtons" onChange={props.onSelect}>
       <div className="cat-button-wrapper">
         <label for="work">work</label>
         <input type="radio" id="work" name="category" value="work" ></input>
