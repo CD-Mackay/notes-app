@@ -58,7 +58,6 @@ export default function useApplicationData() {
       note: note
     }
 
-    console.log("line 64!!!:", savedNote);
     axios({
       method: 'post',
       url: '/notes',
