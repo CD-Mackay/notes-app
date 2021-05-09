@@ -1,0 +1,20 @@
+
+
+.editButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // input {
+  //   visibility: hidden;
+  // }
+}
+
+.notesButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: blue;
+  input {
+    visibility: hidden;
+  }
+}

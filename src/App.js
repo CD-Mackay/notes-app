@@ -30,9 +30,7 @@ const {
         getNoteById,
         selectedNote, 
         selectNote, 
-        updateNote,
-        category,
-        setCategory 
+        updateNote
       } = useApplicationData();
 
 
@@ -44,14 +42,14 @@ const {
     <Switch>
       <Route path="/">
       <div className="page-wrapper">
-        <NoteList category={category} savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor category={category} onSave={saveNote} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+        <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
+        <MyEditor onSave={saveNote} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div>  
     </Route>
     <Route path="/:noteID">
       <div className="page-wrapper">
-      <NoteList category={category} savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor category={category} onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
+        <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
     </Route>
     </Switch>

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Categorystyles.scss';
 
-export default function CategoryButtons(props) {
+export default function ViewCategories(props) {
 
   return (
-    <div className="editButtons" onChange={props.onSelectCategory}>
+    <div className="notesButtons" onChange={props.onSelect}>
       <div className="cat-button-wrapper">
         <label for="work">work</label>
         <input type="radio" id="work" name="category" value="work" ></input>
