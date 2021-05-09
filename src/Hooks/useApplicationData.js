@@ -6,6 +6,7 @@ export default function useApplicationData() {
 
   const [notes, setNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
+  const [category, setCategory] = useState(null);
   
 
   useEffect(() => {
@@ -31,10 +32,11 @@ export default function useApplicationData() {
     }).catch(err => console.log(err));
   };
 
-  function updateNote(note, id, title) {
+  function updateNote(note, id, title, category) {
     console.log(note);
     const updatedNote = {
       note: note,
+      category: category,
       title: title
     }
     return axios({
@@ -45,12 +47,13 @@ export default function useApplicationData() {
   };
 
 
-  function saveNote(note, title) {
+  function saveNote(note, category, title) {
     console.log('saving in hooks!')
     console.log(note);
 
     const savedNote = {
       title: title,
+      category: category,
       note: note
     }
 
