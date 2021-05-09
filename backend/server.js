@@ -1,10 +1,10 @@
 const express = require('express');
 
 const app = express();
-
-const PORT = process.env.port || 3002;
-const user = process.env.PGUSER || 'connormackay';
-const database = process.env.PGDATABASE || 'notes';
+require('dotenv').config();
+const PORT = process.env.PORT;
+const user = process.env.PGUSER;
+const database = process.env.PGDATABASE;
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -74,19 +74,19 @@ app.put('/notes/:noteID', (req, res) => {
 app.listen(PORT, () => {
   setTimeout(() => {
     console.log("3!!!");
-  }, 400)
+  }, 400);
   setTimeout(() => {
     console.log("2!!");
-  }, 800)
+  }, 800);
   setTimeout(() => {
     console.log("1!");
-  }, 1200)
+  }, 1200);
   setTimeout(() => {
-    console.log(`Backend running on port ${PORT}!`)
-  }, 2000)
+    console.log(`Backend running on port ${PORT}!`);
+  }, 2000);
   setTimeout(() => {
-    console.log("Is it really though? ¯\_(ツ)_/¯")
-  }, 8000)
+    console.log("Is it really though? ¯\_(ツ)_/¯");
+  }, 8000);
 
     
 });
