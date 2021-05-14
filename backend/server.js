@@ -52,7 +52,7 @@ app.get('/editor/notes', (req, res) => {
 
 app.post('/notes', (req, res) => {
   console.log(req.body);
-  pool.query("INSERT INTO notes(note, title, category) VALUES ($1, $2, $3);", [req.body.savedNote.note, req.body.savedNote.title, req.body.savedNote.category])
+  pool.query("INSERT INTO notes(note, title, category, date_created) VALUES ($1, $2, $3, $4);", [req.body.savedNote.note, req.body.savedNote.title, req.body.savedNote.category, req.body.savedNote.date_created])
   .then(res => console.log(res))
   .catch(err => console.log(err));
 });

@@ -35,10 +35,12 @@ export default function useApplicationData() {
 
   function updateNote(note, id, title, category) {
     console.log(note);
+    const currentDate = Date.now();
     const updatedNote = {
       note: note,
       category: category,
-      title: title
+      title: title,
+      last_modified: currentDate
     }
     return axios({
       method: 'put',
@@ -51,12 +53,15 @@ export default function useApplicationData() {
   function saveNote(note, category, title) {
     console.log('saving in hooks!')
     console.log(note);
-
+    const currentDate = Date.now();
+    console.log(currentDate);
+    console.log(Date.now());
     const savedNote = {
       title: title,
       category: category,
-      note: note
-    }
+      note: note,
+      date_created: currentDate
+    };
 
     axios({
       method: 'post',

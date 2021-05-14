@@ -4,7 +4,9 @@ CREATE TABLE notes (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255),
   category VARCHAR(255),
-  note jsonb
+  note jsonb,
+  date_created TIMESTAMP,
+  last_modified TIMESTAMP
 );
 
 
