@@ -1,11 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import useApplicationData from '../Hooks/useApplicationData';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
   const history = useHistory();
 
+  const { getDate } = useApplicationData();
 
+  const showDate = props.date;
   const edit = () => {
     console.log('selecting note')
      props.onSelect(props.noteId);
@@ -16,6 +19,7 @@ export default function NoteListItem(props) {
   <div className="note-wrapper">
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
+    <p>{showDate}</p>
     <div className="button-wrapper">
     <button className="delete" onClick={() => props.delete(props.noteId)}>
     <p className="hover-text">&lt;</p>
