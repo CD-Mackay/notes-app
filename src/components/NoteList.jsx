@@ -30,6 +30,7 @@ export default function NoteList(props) {
                            getNote={props.getNote}
                            selectedNote={props.selectedNote}
                            onSelect={props.onSelect}
+                           date={note.date_created}
                            />
       }
 
