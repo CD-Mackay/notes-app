@@ -7,6 +7,7 @@ import useApplicationData from '../Hooks/useApplicationData';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import { useHistory } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 
 
 export default function MyEditor(props) {
@@ -22,6 +23,7 @@ export default function MyEditor(props) {
 
   const { getAllNotes, setNotes } = useApplicationData();
 
+  const alert = useAlert();
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
@@ -36,6 +38,7 @@ export default function MyEditor(props) {
   
   const save = (incState) => {
     console.log("EDITORSTATE!!!", incState);
+    alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
     
@@ -46,6 +49,7 @@ export default function MyEditor(props) {
     console.log('updated', convertedState);
     history.push('/');
     props.onEdit(convertedState, selected.id, title, saveCategory);
+    alert.show('note saved!')
     
   }
 
@@ -86,11 +90,6 @@ export default function MyEditor(props) {
       Save
       <p className="hover-text">/&gt; </p>
     </button>
-    <button className="delete" onClick={props.onDelete} >
-      <p className="hover-text">&lt;</p>
-      Delete
-      <p className="hover-text">/&gt; </p>
-      </button>
       </div>
     </div>
   )
