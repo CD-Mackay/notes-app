@@ -41,8 +41,13 @@ export default function MyEditor(props) {
     alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
-    
   };
+
+  const newNote = () => {
+    setEditorState(EditorState.createEmpty());
+    setTitle("");
+    history.push('/');
+  }
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
@@ -86,9 +91,14 @@ export default function MyEditor(props) {
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <div className="save-delete-wrapper">
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
-    <p className="hover-text">&lt;</p>
+      <p className="hover-text">&lt;</p>
       Save
       <p className="hover-text">/&gt; </p>
+    </button>
+    <button className="new-note" onClick={newNote} >
+      <p className="hover-text">&lt;</p>
+      New
+      <p className="hover-text">/&gt;</p>
     </button>
       </div>
     </div>

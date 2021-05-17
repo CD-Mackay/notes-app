@@ -48,6 +48,20 @@
   }
 }
 
+.new-note {
+  background-color: $button-background-color;
+  width: 150px;
+  font-size: 20px;
+  font-weight: 800px;
+  color: $new-note-color;
+}
+  .new-note:hover {
+    .hover-text {
+      display: inline;
+    }
+  }
+
+
 
 .save {
   color: $save-color;
