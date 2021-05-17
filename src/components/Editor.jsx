@@ -41,8 +41,13 @@ export default function MyEditor(props) {
     alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
-    
   };
+
+  const newNote = () => {
+    setEditorState(EditorState.createEmpty());
+    setTitle("");
+    history.push('/');
+  }
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
@@ -90,6 +95,7 @@ export default function MyEditor(props) {
       Save
       <p className="hover-text">/&gt; </p>
     </button>
+    <button className="new-note" onClick={newNote} >New Note</button>
       </div>
     </div>
   )
