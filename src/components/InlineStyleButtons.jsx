@@ -5,6 +5,7 @@ import './styles.scss';
 export default function InlineStyleButtons(props) {
   const [engaged, setEngaged] = useState(false);
 
+  
   const selectStyle = () => {
     if (engaged) {
       setEngaged(false);
