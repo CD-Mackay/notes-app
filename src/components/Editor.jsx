@@ -91,11 +91,15 @@ export default function MyEditor(props) {
     <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
     <div className="save-delete-wrapper">
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
-    <p className="hover-text">&lt;</p>
+      <p className="hover-text">&lt;</p>
       Save
       <p className="hover-text">/&gt; </p>
     </button>
-    <button className="new-note" onClick={newNote} >New Note</button>
+    <button className="new-note" onClick={newNote} >
+      <p className="hover-text">&lt;</p>
+      New
+      <p className="hover-text">/&gt;</p>
+    </button>
       </div>
     </div>
   )
