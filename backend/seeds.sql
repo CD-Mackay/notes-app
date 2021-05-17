@@ -5,8 +5,8 @@ CREATE TABLE notes (
   title VARCHAR(255),
   category VARCHAR(255),
   note jsonb,
-  date_created TIMESTAMP,
-  last_modified TIMESTAMP
+  date_created BIGINT,
+  last_modified BIGINT
 );
 
 
