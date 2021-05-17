@@ -8,7 +8,8 @@ export default function NoteListItem(props) {
 
   const { getDate } = useApplicationData();
 
-  const showDate = props.date;
+  const showDate = getDate(props.date);
+  const showEdited = getDate(props.modified);
   const edit = () => {
     console.log('selecting note')
      props.onSelect(props.noteId);
@@ -19,7 +20,14 @@ export default function NoteListItem(props) {
   <div className="note-wrapper">
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
+    <div className="date-wrapper">
+      <p>Created:  </p>
     <p>{showDate}</p>
+    </div>
+    <div className="date-wrapper">
+      <p>Last Edited:  </p>
+    <p>{showEdited}</p>
+    </div>
     <div className="button-wrapper">
     <button className="delete" onClick={() => props.delete(props.noteId)}>
     <p className="hover-text">&lt;</p>

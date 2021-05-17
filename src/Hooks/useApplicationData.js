@@ -36,6 +36,8 @@ export default function useApplicationData() {
   function updateNote(note, id, title, category) {
     console.log(note);
     const currentDate = Date.now();
+    console.log(currentDate);
+    console.log(Date.now());
     const updatedNote = {
       note: note,
       category: category,
