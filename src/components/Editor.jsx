@@ -6,6 +6,8 @@ import './Editor.scss';
 import useApplicationData from '../Hooks/useApplicationData';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
+import { useHistory } from 'react-router-dom';
+
 
 export default function MyEditor(props) {
   const [editorState, setEditorState] = React.useState(
@@ -14,7 +16,9 @@ export default function MyEditor(props) {
   const [title, setTitle] = useState("");
   const [saveCategory, setSaveCategory] = useState(null);
 
-  const selected = props.selectedNote;
+  const history = useHistory();
+
+  let selected = props.selectedNote;
 
   const { getAllNotes, setNotes } = useApplicationData();
 
@@ -40,7 +44,9 @@ export default function MyEditor(props) {
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     console.log('updated', convertedState);
+    history.push('/');
     props.onEdit(convertedState, selected.id, title, saveCategory);
+    
   }
 
   useEffect(() => {
