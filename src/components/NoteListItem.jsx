@@ -30,10 +30,10 @@ export default function NoteListItem(props) {
       <p>Created:  </p>
     <p>{showDate}</p>
     </div>
-    <div className="date-wrapper">
+    {props.modified && <div className="date-wrapper">
       <p>Last Edited:  </p>
     <p>{showEdited}</p>
-    </div>
+    </div>}
     <div className="button-wrapper">
     <button className="delete" onClick={() => deleteNote()}>
     <p className="hover-text">&lt;</p>
