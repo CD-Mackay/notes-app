@@ -8,6 +8,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 600px;
+  margin: auto;
 }
 
 .note-wrapper {
@@ -16,5 +17,11 @@
   margin-right: 0;
   span {
     line-height: 2.5;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .notes {
+    margin: 0px;
   }
 }
