@@ -5,6 +5,7 @@
   height: 600px;
   border: 1px solid black;
   background-color: white;
+  margin-bottom: 70px;
   input {
     width: 100%;
     line-height: 2;
@@ -12,4 +13,8 @@
 }
 .DraftEditor-root {
   height: 85%;
+}
+
+@media screen and (min-width: 481px) {
+  
 }
