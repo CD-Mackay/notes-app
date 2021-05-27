@@ -35,7 +35,7 @@ export default function NoteList(props) {
 
   })
   return (
-    <div className="notes">
+    <div className="notes" data-testid="noteList">
       <ViewCategories onSelect={chooseViewCategory} lastCat={"all"} />
       {viewCategory && <p>Category: {viewCategory}</p>}
       {!viewCategory && <p>Category: all</p>}
