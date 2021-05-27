@@ -1,10 +1,11 @@
 import React from 'react';
-import { render, cleanup, getByText, getByTestId } from '@testing-library/react';
+import { render, cleanup, getByText, getByTestId, screen } from '@testing-library/react';
 
 import NoteList from '../NoteList';
-import NoteListItem from '../NoteListItem';
+
 
 describe("NoteList", () => {
+it ("Renders the noteList", () => {
   const notes = [
     {
         id: 6,
@@ -38,8 +39,7 @@ describe("NoteList", () => {
         }
     
   ]
-});
 
-it ("Renders the noteList", () => {
-  expect(getByTestId('noteList')).toHaveTextContent("Writing notes is fun");
-});
+  render(<NoteList savedNotes={notes} current={null} />);
+  expect(screen.getByTestId("noteList")).toHaveTextContent("Writing notes is fun");
+})});
