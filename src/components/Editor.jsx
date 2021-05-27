@@ -21,8 +21,6 @@ export default function MyEditor(props) {
 
   let selected = props.selectedNote;
 
-  const { getAllNotes, setNotes } = useApplicationData();
-
   const alert = useAlert();
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
@@ -37,7 +35,6 @@ export default function MyEditor(props) {
 
   
   const save = (incState) => {
-    console.log("EDITORSTATE!!!", incState);
     alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
@@ -51,7 +48,6 @@ export default function MyEditor(props) {
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    console.log('updated', convertedState);
     history.push('/');
     props.onEdit(convertedState, selected.id, title, saveCategory);
     alert.show('note saved!')
@@ -60,16 +56,11 @@ export default function MyEditor(props) {
 
   useEffect(() => {
     if (selected) {
-      console.log("there is a selected note");
-      console.log(selected);
       const noteToEdit = selected.note
       const selectedNote = EditorState.createWithContent(convertFromRaw(JSON.parse(JSON.stringify(noteToEdit))));
-      console.log(selectedNote);
       setEditorState(selectedNote);
       setTitle(selected.title)
-    } else {
-      console.log("no note selected");
-    }
+    } 
   }, [selected]);
 
   const toggleInlineStyle = (event) => {
