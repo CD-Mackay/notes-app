@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <div className="footer">
       <div className="icon-wrapper">
-      <p>Connor Mackay</p>
+      <p data-testid="name-text">Connor Mackay</p>
       <p><a href="https://github.com/CD-Mackay" className="anchor-link" target="blank">
       <FontAwesomeIcon icon={['fab', 'github-alt']} className="anchor-icon" />
       </a></p>
