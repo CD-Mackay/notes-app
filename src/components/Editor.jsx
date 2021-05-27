@@ -83,7 +83,7 @@ export default function MyEditor(props) {
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
-    <CategoryButtons whereAreTheButton={"editButtons"} onSelectCategory={chooseSaveCategory} lastCat={"none"} />
+    <CategoryButtons onSelectCategory={chooseSaveCategory} lastCat={"none"} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />

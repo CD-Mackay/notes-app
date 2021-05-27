@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import NoteListItem from './NoteListItem';
 import './styles.scss';
 import './Notelist.scss';
-import CategoryButtons from './CategoryButtons';
 import ViewCategories from './ViewCategories';
 
 
@@ -38,7 +37,7 @@ export default function NoteList(props) {
   })
   return (
     <div className="notes">
-      <ViewCategories whereAreTheButton={"notesButtons"} onSelect={chooseViewCategory} lastCat={"all"} />
+      <ViewCategories onSelect={chooseViewCategory} lastCat={"all"} />
       {viewCategory && <p>Category: {viewCategory}</p>}
       {!viewCategory && <p>Category: all</p>}
       { parsedNotes }
