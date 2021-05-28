@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 
 import NoteList from '../NoteList';
 
@@ -43,6 +43,7 @@ it ("Renders the noteList", async () => {
   const { getByText, getAllByText } = render(<NoteList savedNotes={notes} />);
   expect(getByText('Writing notes is fun')).toBeInTheDocument;
   expect(getAllByText('Edit')).toBeInTheDocument;
+
 });
 
 });
