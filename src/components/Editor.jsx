@@ -21,7 +21,7 @@ export default function MyEditor(props) {
 
   let selected = props.selectedNote;
 
-  const alert = useAlert();
+  //const alert = useAlert();
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 

@@ -42,5 +42,12 @@
     
 //   ]
 
-//   render(<NoteList savedNotes={notes} selectedNote={null} />);
+//   const { listOfNotes } = render(<NoteList savedNotes={notes} selectedNote={null} />);
+  
 // })});
+
+// // it("renders its `children` prop as text", () => {
+// //   const { getByText } = render(<Button>Default</Button>);
+// //   expect(getByText("Default")).toBeInTheDocument();
+// // });
+
