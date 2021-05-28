@@ -6,7 +6,7 @@ import "./styles.scss";
 
 export default function NoteListItem(props) {
   const history = useHistory();
-  const alert = useAlert();
+//  const alert = useAlert();
 
   const { getDate } = useApplicationData();
 

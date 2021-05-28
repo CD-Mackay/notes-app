@@ -16,7 +16,8 @@ export default function NoteList(props) {
     }
   }
 
-    const parsedNotes = props.savedNotes
+    const parsedNotes = 
+    props.savedNotes
     .filter (note => note.category == viewCategory || viewCategory == null )
     .map(note => {
       if (note.note) {
@@ -32,7 +33,6 @@ export default function NoteList(props) {
                            modified={note.last_modified}
                            />
       }
-
   })
   return (
     <div className="notes" data-testid="noteList">
