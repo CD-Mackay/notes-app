@@ -1,5 +1,5 @@
 import React from 'react';
-import { getByTestId, getByText, render, screen, getByPlaceholderText } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import MyEditor from '../Editor';
 
 describe("MyEditor", () => {
@@ -42,5 +42,5 @@ describe("MyEditor", () => {
 
       const { getByPlaceholderText } = render(<MyEditor selectedNote={selectedNote} />);
       expect(getByPlaceholderText('note title')).toHaveValue('Writing notes is fun');
-  })
+  });
 });

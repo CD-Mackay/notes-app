@@ -1,7 +1,6 @@
 import React from 'react';
-import { getByTestId, getByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Footer from '../Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faGithubAlt, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faCoffee, faEnvelope, faEnvelopeOpen,faPhone } from '@fortawesome/free-solid-svg-icons'

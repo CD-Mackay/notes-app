@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, cleanup, getByText, getAllByText, getByTestId, getByPlaceholderText, screen } from '@testing-library/react';
-import { useAlert } from 'react-alert';
+import { render, cleanup } from '@testing-library/react';
 
 import NoteList from '../NoteList';
-import NoteListItem from '../NoteListItem';
 
 afterEach(cleanup);
 
