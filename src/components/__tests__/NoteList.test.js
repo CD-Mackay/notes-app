@@ -43,7 +43,6 @@ it ("Renders the noteList", async () => {
   const { getByText, getAllByText } = render(<NoteList savedNotes={notes} />);
   expect(getByText('Writing notes is fun')).toBeInTheDocument;
   expect(getAllByText('Edit')).toBeInTheDocument;
-
 });
 
 });
