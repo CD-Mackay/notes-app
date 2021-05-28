@@ -35,7 +35,7 @@ export default function MyEditor(props) {
 
   
   const save = (incState) => {
-    alert.show('New note saved!')
+   // alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
   };
@@ -43,14 +43,14 @@ export default function MyEditor(props) {
   const newNote = () => {
     setEditorState(EditorState.createEmpty());
     setTitle("");
-    history.push('/');
+    //history.push('/');
   }
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    history.push('/');
+    //history.push('/');
     props.onEdit(convertedState, selected.id, title, saveCategory);
-    alert.show('note saved!')
+    //alert.show('note saved!')
     
   }
 

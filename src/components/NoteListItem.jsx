@@ -18,7 +18,7 @@ export default function NoteListItem(props) {
   const showEdited = getDate(props.modified);
   const edit = () => {
      props.onSelect(props.noteId);
-     history.push(`/${props.noteId}`);
+    // history.push(`/${props.noteId}`);
       }
 
   return (
@@ -26,7 +26,7 @@ export default function NoteListItem(props) {
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
     <div className="date-wrapper">
-      <p>Created:  </p>
+      <p data-testid="date-info" >Created:  </p>
     <p>{showDate}</p>
     </div>
     {props.modified && <div className="date-wrapper">
