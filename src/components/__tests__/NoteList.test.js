@@ -1,13 +1,15 @@
 import React from 'react';
-import { render, cleanup, getByText, getByTestId, getByPlaceholderText, screen } from '@testing-library/react';
+import { render, cleanup, getByText, getAllByText, getByTestId, getByPlaceholderText, screen } from '@testing-library/react';
 import { useAlert } from 'react-alert';
 
 import NoteList from '../NoteList';
 import NoteListItem from '../NoteListItem';
 
+afterEach(cleanup);
+
 describe("NoteList", () => {
-it ("Renders the noteList", () => {
-  const notes = [{
+  const notes = [
+    {
     id: 6,
     title: "Writing notes is fun",
     category: null,
@@ -37,14 +39,15 @@ it ("Renders the noteList", () => {
     date_created: "1621275865939",
     last_modified: "1621276198079"
     }
-  ]
-  const { getByText } = render(<NoteList savedNotes={notes} />);
+    ];
+    
+it ("Renders the noteList", async () => {
+  const { getByText, getAllByText } = render(<NoteList savedNotes={notes} />);
   expect(getByText('Writing notes is fun')).toBeInTheDocument;
-  
-})});
+  expect(getAllByText('Edit')).toBeInTheDocument;
+});
 
-// // it("renders its `children` prop as text", () => {
-// //   const { getByText } = render(<Button>Default</Button>);
-// //   expect(getByText("Default")).toBeInTheDocument();
-// // });
+});
+
+
 
