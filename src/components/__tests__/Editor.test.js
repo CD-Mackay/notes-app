@@ -1,9 +1,9 @@
-// import React from 'react';
-// import { getByTestId, getByText, render, screen } from '@testing-library/react';
-// import MyEditor from '../Editor';
+import React from 'react';
+import { getByTestId, getByText, render, screen } from '@testing-library/react';
+import MyEditor from '../Editor';
 
-// describe("MyEditor", () => {
-//   it("Renders without Crashing", () => {
-//     render(<MyEditor />)
-//   });
-// });
+describe("MyEditor", () => {
+  it("Renders without Crashing", () => {
+   const { getByTestId } = render(<MyEditor />);
+  });
+});
