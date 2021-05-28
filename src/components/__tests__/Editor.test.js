@@ -1,9 +1,10 @@
 import React from 'react';
-import { getByTestId, getByText, render, screen } from '@testing-library/react';
+import { getByTestId, getByText, render, screen, getByPlaceholderText } from '@testing-library/react';
 import MyEditor from '../Editor';
 
 describe("MyEditor", () => {
   it("Renders without Crashing", () => {
-   const { getByTestId } = render(<MyEditor />);
+   const { getByPlaceholderText } = render(<MyEditor />);
+   expect(getByPlaceholderText('note title')).toHaveValue("");
   });
 });
