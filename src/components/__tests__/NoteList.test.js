@@ -45,6 +45,11 @@ it ("Renders the noteList", async () => {
   expect(getAllByText('Edit')).toBeInTheDocument;
 });
 
+it("Renders the appropriate buttons to select and delete notes", async () => {
+  const { getAllByText } = render(<NoteList savedNotes={notes} />);
+  expect(getAllByText('Edit')).toBeInTheDocument;
+  expect(getAllByText('Delete')).toBeInTheDocument;
+})
 });
 
 
