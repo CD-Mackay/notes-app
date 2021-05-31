@@ -40,7 +40,6 @@ describe("MyEditor", () => {
   });
 
   it("Renders with saved Notes", () => {
-
       const { getByPlaceholderText } = render(<MyEditor selectedNote={selectedNote} />);
       expect(getByPlaceholderText('note title')).toHaveValue('Writing notes is fun');
   });
@@ -56,5 +55,6 @@ describe("MyEditor", () => {
     const { getByPlaceholderText, getByText } = render(<MyEditor selectedNote={selectedNote} />);
     fireEvent.click(getByText('New'));
     expect(getByPlaceholderText('note title')).toBeInTheDocument;
-  })
+  });
+
 });

@@ -16,6 +16,7 @@ export default function NoteListItem(props) {
   }
   const showDate = getDate(props.date);
   const showEdited = getDate(props.modified);
+  
   const edit = () => {
      props.onSelect(props.noteId);
     // history.push(`/${props.noteId}`);
