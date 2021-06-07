@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, getByTestId, queryByText } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 
 import NoteList from '../NoteList';
 
