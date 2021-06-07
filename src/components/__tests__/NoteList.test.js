@@ -125,7 +125,8 @@ it("does not show any notes if there are none in the selected category", () => {
   const{ getByText, getByTestId, queryByText } = render(<NoteList savedNotes={notes} />);
   fireEvent.click(getByTestId("workButton"));
   expect(queryByText("new note 1")).not.toBeInTheDocument;
-})
+  expect(getByText("No notes in this category")).toBeInTheDocument;
+});
 });
 
 
