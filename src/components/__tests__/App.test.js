@@ -7,17 +7,16 @@ afterEach(cleanup);
 
 describe("Das Application", () => {
     
-  it ("Loads without Crashing", () => {
+  it ("Loads without Crashing", async () => {
     const { getByText, getByPlaceholderText } = render(<App />);
     expect(getByText("A React App")).toBeInTheDocument;
     expect(getByPlaceholderText("note title")).toBeInTheDocument;
   });
 
-  it("loads the editor and notelist components", () => {
+  it("loads the editor and notelist components", async () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(<App />);
     expect(getByTestId("header")).toBeInTheDocument;
     expect(getByPlaceholderText("note title")).toHaveValue("");
-    expect(getby)
   });
 
 });

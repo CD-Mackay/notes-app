@@ -57,4 +57,12 @@ describe("MyEditor", () => {
     expect(getByPlaceholderText('note title')).toBeInTheDocument;
   });
 
+  it("modifies the note title according to user input", () => {
+    const { getByPlaceholderText } = render(<MyEditor selectedNote={selectedNote} />);
+    fireEvent.click(getByPlaceholderText('note title'));
+    fireEvent.change(getByPlaceholderText('note title'), {
+      target: {value: "updated title"}
+    });
+    expect(getByPlaceholderText('note title')).toHaveValue("updated title");
+  });
 });
