@@ -32,7 +32,7 @@ describe("MyEditor", () => {
     },
     date_created: "1621275865939",
     last_modified: "1621276198079"
-    }
+    };
 
   it("Renders without Crashing", () => {
    const { getByPlaceholderText } = render(<MyEditor />);
@@ -49,7 +49,7 @@ describe("MyEditor", () => {
     const { getByText } = render(<MyEditor onSave={onSave} />);
     fireEvent.click(getByText('Save'));
     expect(onSave).toHaveBeenCalled;
-  })
+  });
 
   it("it clears the editor when the newNote button is clicked", () => {
     const { getByPlaceholderText, getByText } = render(<MyEditor selectedNote={selectedNote} />);

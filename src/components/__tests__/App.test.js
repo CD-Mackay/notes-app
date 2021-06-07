@@ -17,6 +17,7 @@ describe("Das Application", () => {
     const { getByText, getByTestId, getByPlaceholderText } = render(<App />);
     expect(getByTestId("header")).toBeInTheDocument;
     expect(getByPlaceholderText("note title")).toHaveValue("");
+    expect(getby)
   });
 
 });
