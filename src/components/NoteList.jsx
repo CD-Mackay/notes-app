@@ -40,6 +40,7 @@ export default function NoteList(props) {
       {viewCategory && <p>Category: {viewCategory}</p>}
       {!viewCategory && <p>Category: all</p>}
       { parsedNotes }
+      {parsedNotes.length === 0 && <p>No notes in this category</p>}
     </div>
   );
 }
