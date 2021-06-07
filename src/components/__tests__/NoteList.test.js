@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, getByTestId } from '@testing-library/react';
 
 import NoteList from '../NoteList';
 
@@ -111,6 +111,13 @@ it("Renders the appropriate buttons to select and delete notes", async () => {
   expect(getAllByText('Edit')).toBeInTheDocument;
   expect(getAllByText('Delete')).toBeInTheDocument;
 });
+
+it("filters the notelist according to category", () => {
+  const{ getByText, getByTestId, queryByText } = render(<NoteList savedNotes={notes} />);
+  fireEvent.click(getByTestId("personalButton"));
+  expect(queryByText("Writing notes is fun")).not.toBeInTheDocument;
+  expect(getByText("new note 1")).toBeInTheDocument;
+})
 });
 
 
