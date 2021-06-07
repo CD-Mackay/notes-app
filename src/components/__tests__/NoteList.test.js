@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, getByTestId } from '@testing-library/react';
+import { render, cleanup, fireEvent, getByTestId, queryByText } from '@testing-library/react';
 
 import NoteList from '../NoteList';
 
@@ -119,6 +119,12 @@ it("filters the notelist according to category", () => {
   expect(getByText("new note 1")).toBeInTheDocument;
   fireEvent.click(getByTestId('allButton'));
   expect(getByText("Writing notes is fun")).toBeInTheDocument;
+});
+
+it("does not show any notes if there are none in the selected category", () => {
+  const{ getByText, getByTestId, queryByText } = render(<NoteList savedNotes={notes} />);
+  fireEvent.click(getByTestId("workButton"));
+  expect(queryByText("new note 1")).not.toBeInTheDocument;
 })
 });
 

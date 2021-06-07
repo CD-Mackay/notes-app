@@ -7,7 +7,7 @@ export default function ViewCategories(props) {
     <div className="notesButtons" onChange={props.onSelect}>
       <div className="cat-button-wrapper">
         <label htmlFor="work">work</label>
-        <input type="radio" id="work" name="category" value="work" ></input>
+        <input type="radio" id="work" data-testid="workButton" name="category" value="work" ></input>
       </div>
       <div className="cat-button-wrapper">
         <label htmlFor="personal">personal</label>
