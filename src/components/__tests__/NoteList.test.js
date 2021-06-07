@@ -117,6 +117,8 @@ it("filters the notelist according to category", () => {
   fireEvent.click(getByTestId("personalButton"));
   expect(queryByText("Writing notes is fun")).not.toBeInTheDocument;
   expect(getByText("new note 1")).toBeInTheDocument;
+  fireEvent.click(getByTestId('allButton'));
+  expect(getByText("Writing notes is fun")).toBeInTheDocument;
 })
 });
 

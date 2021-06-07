@@ -19,7 +19,7 @@ export default function ViewCategories(props) {
       </div>
       <div className="cat-button-wrapper">
         <label htmlFor={props.lastCat}>{props.lastCat}</label>
-        <input type="radio" id={props.lastCat} name="category" value={props.lastCat}></input>
+        <input type="radio" id={props.lastCat} data-testid="allButton" name="category" value={props.lastCat}></input>
       </div>
     </div>
    
