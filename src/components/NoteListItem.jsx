@@ -35,7 +35,7 @@ export default function NoteListItem(props) {
     <p>{showEdited}</p>
     </div>}
     <div className="button-wrapper">
-    <button className="delete" onClick={() => deleteNote()}>
+    <button className="delete" onClick={deleteNote}>
     <p className="hover-text">&lt;</p>
       Delete
       <p className="hover-text">/&gt; </p>

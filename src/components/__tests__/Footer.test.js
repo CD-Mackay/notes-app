@@ -14,5 +14,5 @@ describe('Footer', () => {
   it('should display the appropriate text', () => {
     render(<Footer />);
     expect(screen.getByTestId('name-text')).toHaveTextContent("Connor Mackay");
-  })
+  });
 });

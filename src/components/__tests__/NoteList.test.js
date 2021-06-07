@@ -30,12 +30,72 @@ describe("NoteList", () => {
     depth: 0,
     entityRanges: [ ],
     inlineStyleRanges: [ ]
+    },
+    {
+    key: "e0q8g",
+    data: { },
+    text: "make a quick update for fun",
+    type: "unstyled",
+    depth: 0,
+    entityRanges: [ ],
+    inlineStyleRanges: [ ]
+    },
+    {
+    key: "31rkk",
+    data: { },
+    text: "update this one ",
+    type: "unstyled",
+    depth: 0,
+    entityRanges: [ ],
+    inlineStyleRanges: [ ]
     }
     ],
     entityMap: { }
     },
     date_created: "1621275865939",
-    last_modified: "1621276198079"
+    last_modified: "1622236566291"
+    },
+    {
+    id: 4,
+    title: "new note 1",
+    category: "personal",
+    note: {
+    blocks: [
+    {
+    key: "44v9q",
+    data: { },
+    text: "testing one two",
+    type: "unstyled",
+    depth: 0,
+    entityRanges: [ ],
+    inlineStyleRanges: [ ]
+    }
+    ],
+    entityMap: { }
+    },
+    date_created: "1621272775955",
+    last_modified: null
+    },
+    {
+    id: 5,
+    title: "testing",
+    category: null,
+    note: {
+    blocks: [
+    {
+    key: "8p988",
+    data: { },
+    text: "test one two",
+    type: "unstyled",
+    depth: 0,
+    entityRanges: [ ],
+    inlineStyleRanges: [ ]
+    }
+    ],
+    entityMap: { }
+    },
+    date_created: "1621275190839",
+    last_modified: null
     }
     ];
     
@@ -45,11 +105,11 @@ it ("Renders the noteList", async () => {
   expect(getAllByText('Edit')).toBeInTheDocument;
 });
 
-// it("Renders the appropriate buttons to select and delete notes", async () => {
-//   const { getAllByText } = render(<NoteList savedNotes={notes} />);
-//   expect(getAllByText('Edit')).toBeInTheDocument;
-//   await  expect(getAllByText('Delete')).toBeInTheDocument;
-// })
+it("Renders the appropriate buttons to select and delete notes", async () => {
+  const { getAllByText } = render(<NoteList savedNotes={notes} />);
+  expect(getAllByText('Edit')).toBeInTheDocument;
+  expect(getAllByText('Delete')).toBeInTheDocument;
+});
 });
 
 
