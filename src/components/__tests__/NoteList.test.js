@@ -103,6 +103,7 @@ it ("Renders the noteList", async () => {
   const { getByText, getAllByText } = render(<NoteList savedNotes={notes} />);
   expect(getByText('Writing notes is fun')).toBeInTheDocument;
   expect(getAllByText('Edit')).toBeInTheDocument;
+  expect(getByText("new note 1")).toBeInTheDocument;
 });
 
 it("Renders the appropriate buttons to select and delete notes", async () => {
