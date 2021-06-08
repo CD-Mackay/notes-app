@@ -26,5 +26,5 @@ describe("Das Application", () => {
       target: {value: "updated title"}
     });
     expect(getByPlaceholderText('note title')).toHaveValue("updated title");
-  })
+  });
 });
