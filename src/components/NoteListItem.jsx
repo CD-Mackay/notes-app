@@ -12,7 +12,7 @@ export default function NoteListItem(props) {
 
   const deleteNote = () => {
     props.delete(props.noteId);
-    alert.show(`Deleted ${props.title}`)
+    //alert.show(`Deleted ${props.title}`)
   }
   const showDate = getDate(props.date);
   const showEdited = getDate(props.modified);

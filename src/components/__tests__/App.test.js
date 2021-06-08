@@ -21,10 +21,18 @@ describe("Das Application", () => {
 
   it("updates the contents of the editor according to user input", () => {
     const { getByPlaceholderText } = render(<App />);
-    fireEvent.click(getByPlaceholderText('note title'));
     fireEvent.change(getByPlaceholderText('note title'), {
       target: {value: "updated title"}
     });
     expect(getByPlaceholderText('note title')).toHaveValue("updated title");
-  })
+  });
+  it("clears the editor when the new note button is clicked", () => {
+    const { getByText, getByPlaceholderText } = render(<App/>);
+    fireEvent.change(getByPlaceholderText('note title'), {
+      target: {value: "updated title"}
+    });
+    expect(getByPlaceholderText('note title')).toHaveValue("updated title");
+    fireEvent.click(getByText('New'));
+    expect(getByPlaceholderText('note title')).toHaveValue("");
+  });
 });
