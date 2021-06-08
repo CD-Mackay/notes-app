@@ -27,4 +27,16 @@ describe("Das Application", () => {
     });
     expect(getByPlaceholderText('note title')).toHaveValue("updated title");
   });
+  it("clears the editor when the new note button is clicked", () => {
+    const { getByText, getByPlaceholderText } = render(<App/>);
+    fireEvent.change(getByPlaceholderText('note title'), {
+      target: {value: "updated title"}
+    });
+    expect(getByPlaceholderText('note title')).toHaveValue("updated title");
+    fireEvent.click(getByText('New'));
+    expect(getByPlaceholderText('note title')).toHaveValue("");
+
+
+    
+  })
 });
