@@ -21,7 +21,6 @@ describe("Das Application", () => {
 
   it("updates the contents of the editor according to user input", () => {
     const { getByPlaceholderText } = render(<App />);
-    fireEvent.click(getByPlaceholderText('note title'));
     fireEvent.change(getByPlaceholderText('note title'), {
       target: {value: "updated title"}
     });
@@ -35,8 +34,5 @@ describe("Das Application", () => {
     expect(getByPlaceholderText('note title')).toHaveValue("updated title");
     fireEvent.click(getByText('New'));
     expect(getByPlaceholderText('note title')).toHaveValue("");
-
-
-    
-  })
+  });
 });
