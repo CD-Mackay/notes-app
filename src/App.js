@@ -31,7 +31,6 @@ const {
         selectedNote, 
         selectNote, 
         updateNote,
-        getAllNotes,
         clearEditor
       } = useApplicationData();
 

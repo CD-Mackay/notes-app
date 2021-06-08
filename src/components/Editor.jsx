@@ -1,9 +1,8 @@
-import React, { useEffect, componentDidMount, useState } from 'react';
-import {Editor, EditorState, convertToRaw, convertFromRaw, createEditorState, RichUtils } from 'draft-js';
+import React, { useEffect, useState } from 'react';
+import {Editor, EditorState, convertToRaw, convertFromRaw, RichUtils } from 'draft-js';
 import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 import './Editor.scss';
-import useApplicationData from '../Hooks/useApplicationData';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import { useHistory } from 'react-router-dom';
