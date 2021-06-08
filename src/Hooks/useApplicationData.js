@@ -76,14 +76,18 @@ export default function useApplicationData() {
 
   function getNoteById(id) {
     return notes.filter(note => note.id === id);
-  }
+  };
 
   function selectNote(id) {
     console.log(id);
     const note = getNoteById(id);
     const selected = note.shift();
     setSelectedNote(selected);
-  }
+  };
+
+  function clearEditor() {
+    setSelectedNote(null);
+  };
 
   function getDate(milliseconds) {
     if (milliseconds) {
@@ -114,7 +118,7 @@ export default function useApplicationData() {
   };
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote,getAllNotes, setNotes, getDate }
+  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote,getAllNotes, setNotes, getDate, clearEditor }
 }
 
 

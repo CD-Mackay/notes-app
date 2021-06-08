@@ -31,7 +31,7 @@ const {
         selectedNote, 
         selectNote, 
         updateNote,
-        getAllNotes
+        clearEditor
       } = useApplicationData();
 
 
@@ -44,13 +44,13 @@ const {
       <Route path="/">
       <div className="page-wrapper">
         <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor onSave={saveNote} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+        <MyEditor onSave={saveNote} onClear={clearEditor} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div>  
     </Route>
     <Route path="/:noteID">
       <div className="page-wrapper">
       <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor onSave={saveNote} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+        <MyEditor onSave={saveNote} onClear={clearEditor} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div> 
     </Route>
     </Switch>
