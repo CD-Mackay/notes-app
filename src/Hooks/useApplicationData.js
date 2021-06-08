@@ -87,7 +87,7 @@ export default function useApplicationData() {
 
   function clearEditor() {
     setSelectedNote(null);
-  }
+  };
 
   function getDate(milliseconds) {
     if (milliseconds) {

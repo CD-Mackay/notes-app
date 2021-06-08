@@ -43,7 +43,7 @@ export default function MyEditor(props) {
   const newNote = () => {
     setEditorState(EditorState.createEmpty());
     setTitle("");
-    selected = null;
+    props.onClear();
     //history.push('/');
   }
 
