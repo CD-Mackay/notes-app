@@ -9,7 +9,7 @@ export default function NoteList(props) {
   const [viewCategory, setViewCategory] = useState(null);
 
   const chooseViewCategory = (event) => {
-    if (event.target.value == "all") {
+    if (event.target.value === "all") {
       setViewCategory(null);
     } else {
       setViewCategory(event.target.value);
@@ -18,7 +18,7 @@ export default function NoteList(props) {
 
     const parsedNotes = 
     props.savedNotes
-    .filter (note => note.category == viewCategory || viewCategory == null )
+    .filter (note => note.category === viewCategory || viewCategory === null )
     .map(note => {
       if (note.note) {
       return <NoteListItem content={note.note}
