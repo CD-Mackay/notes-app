@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
+};
 
 .notesButtons {
   display: flex;
@@ -14,7 +14,10 @@
   input {
     visibility: hidden;
   }
-}
+};
 .selected-cat {
-  color: red;
-}
+  border-radius: 5px;
+  background-color: gray;
+  padding-left: 2px;
+  padding-right: 2px;
+};
