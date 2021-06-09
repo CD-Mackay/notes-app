@@ -9,6 +9,9 @@
   overflow-y: auto;
   max-height: 600px;
   margin: auto;
+  p {
+    line-height: 0.5;
+  }
 }
 
 .note-wrapper {
