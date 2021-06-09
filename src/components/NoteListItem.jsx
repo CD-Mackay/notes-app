@@ -1,11 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import useApplicationData from '../Hooks/useApplicationData';
 import { useAlert } from 'react-alert';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
-  const history = useHistory();
 //  const alert = useAlert();
 
   const { getDate } = useApplicationData();

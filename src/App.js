@@ -1,7 +1,5 @@
 import './App.css';
 import { React } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 
 // Import Hooks
 import useApplicationData from './Hooks/useApplicationData';
@@ -37,26 +35,15 @@ const {
 
 
   return (
-    <Router>
+   
       <div className="App">
     <Header />
-    <Switch>
-      <Route path="/">
       <div className="page-wrapper">
         <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
         <MyEditor onSave={saveNote} onClear={clearEditor} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
-      </div>  
-    </Route>
-    <Route path="/:noteID">
-      <div className="page-wrapper">
-      <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor onSave={saveNote} onClear={clearEditor} onDelete={deleteNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
-      </div> 
-    </Route>
-    </Switch>
+      </div>
     <Footer />
     </div>
-    </Router>
   );
 }
 

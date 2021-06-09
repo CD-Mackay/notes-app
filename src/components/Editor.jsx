@@ -5,7 +5,6 @@ import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
-import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
 
@@ -16,7 +15,6 @@ export default function MyEditor(props) {
   const [title, setTitle] = useState("");
   const [saveCategory, setSaveCategory] = useState(null);
 
-  const history = useHistory();
 
   let selected = props.selectedNote;
 
@@ -25,7 +23,7 @@ export default function MyEditor(props) {
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
   const chooseSaveCategory = (event) => {
-    if (event.target.value == "none") {
+    if (event.target.value === "none") {
       setSaveCategory(null);
     } else {
     setSaveCategory(event.target.value);
