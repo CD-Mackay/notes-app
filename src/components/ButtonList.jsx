@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaItalic, FaBold, FaUnderline, FaStrikethrough, FaCode } from 'react-icons/fa';
+import { FaItalic, FaBold, FaUnderline, FaStrikethrough } from 'react-icons/fa';
 import InlineStyleButtons from './InlineStyleButtons';
 
 

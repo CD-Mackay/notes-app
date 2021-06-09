@@ -17,7 +17,7 @@ export default function ViewCategories(props) {
         <input type="radio" id="hobbies" name="category" value="hobbies"></input>
       </div>
       <div className="view-button-wrapper">
-        <label htmlFor={props.lastCat} className={props.currentCat == props.lastCat ? "selected-cat" : "cat-button"}>{props.lastCat}</label>
+        <label htmlFor={props.lastCat} className={props.currentCat === props.lastCat ? "selected-cat" : "cat-button"}>{props.lastCat}</label>
         <input type="radio" id={props.lastCat} data-testid="allButton" name="category" value={props.lastCat}></input>
       </div>
     </div>
