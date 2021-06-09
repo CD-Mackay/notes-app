@@ -17,8 +17,7 @@
 };
 
 .cat-button {
-  padding-left: 2px;
-  padding-right: 2px;
+  padding: 0 2px 0 2px;
 }
 
 .cat-button:hover {
@@ -28,6 +27,5 @@
 .selected-cat {
   border-radius: 5px;
   background-color: gray;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding: 0 2px 0 2px;
 };
