@@ -68,7 +68,7 @@ export default function useApplicationData() {
     axios({
       method: 'post',
       url: '/notes',
-      data: { savedNote }
+      data: savedNote 
     })
     .then(getAllNotes())
     .catch(err => console.log(err));

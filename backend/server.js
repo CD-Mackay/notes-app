@@ -51,8 +51,8 @@ app.get('/editor/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  console.log(req.body);
-  pool.query("INSERT INTO notes(note, title, category, date_created) VALUES ($1, $2, $3, $4);", [req.body.savedNote.note, req.body.savedNote.title, req.body.savedNote.category, req.body.savedNote.date_created])
+  const note = req.body;
+  pool.query("INSERT INTO notes(note, title, category, date_created) VALUES ($1, $2, $3, $4);", [note.note, note.title, note.category, note.date_created])
   .then(res => console.log(res))
   .catch(err => console.log(err));
 });
@@ -65,7 +65,6 @@ app.delete(`/notes/:noteID`, (req, res) => {
 });
 
 app.put('/notes/:noteID', (req, res) => {
-  console.log("note content? ", req.body.updatedNote);
   const note = req.body.updatedNote;
   let noteID = req.params.noteID;
   pool.query("UPDATE notes SET note = $1, title = $2, category = $3, last_modified = $4 where id = $5;",
@@ -75,21 +74,8 @@ app.put('/notes/:noteID', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  setTimeout(() => {
-    console.log("3!!!");
-  }, 400);
-  setTimeout(() => {
-    console.log("2!!");
-  }, 800);
-  setTimeout(() => {
-    console.log("1!");
-  }, 1200);
-  setTimeout(() => {
     console.log(`Backend running on port ${PORT}!`);
-  }, 2000);
   setTimeout(() => {
     console.log("Is it really though? ¯\_(ツ)_/¯");
   }, 8000);
-
-    
 });
