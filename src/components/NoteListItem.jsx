@@ -12,9 +12,23 @@ export default function NoteListItem(props) {
   const showEdited = getDate(props.modified);
   
   const edit = () => props.onSelect(props.noteId);
+  const now = Date.now();
+
+  const isNoteNew = () => {
+    console.log(now);
+    const elapsed = now - props.date;
+    console.log(elapsed);
+    if (elapsed < 10000) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  console.log(isNoteNew());
 
   return (
-  <div className="note-wrapper">
+  <div className={isNoteNew() ? "new-wrapper" : "note-wrapper"}>
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
     <div className="date-wrapper">
