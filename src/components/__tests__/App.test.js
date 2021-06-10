@@ -8,7 +8,6 @@ describe("Das Application", () => {
 
   it ("Loads without Crashing", async () => {
     const { getByText, getByPlaceholderText, debug } = render(<App />);
-    debug();
     expect(getByText("A React App")).toBeInTheDocument;
     expect(getByPlaceholderText("note title")).toBeInTheDocument;
   });

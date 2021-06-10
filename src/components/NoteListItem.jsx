@@ -6,15 +6,12 @@ export default function NoteListItem(props) {
 
   const { getDate } = useApplicationData();
 
-  const deleteNote = () => {
-    props.delete(props.noteId);
-  }
+  const deleteNote = () => props.delete(props.noteId);
+  
   const showDate = getDate(props.date);
   const showEdited = getDate(props.modified);
   
-  const edit = () => {
-     props.onSelect(props.noteId);
-      }
+  const edit = () => props.onSelect(props.noteId);
 
   return (
   <div className="note-wrapper">
