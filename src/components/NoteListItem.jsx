@@ -8,12 +8,20 @@ export default function NoteListItem(props) {
 
 
   const isNoteNew = () => {
+    if (props.modified) {
+      const elapsed = now - props.modified; 
+      if (elapsed < 10000) {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (!props.modified) {
     const elapsed = now - props.date; 
     if (elapsed < 10000) {
       return true;
     } else {
       return false;
-    }
+    }}
   };
 
   const [isNew, setIsNew] = useState(isNoteNew());
