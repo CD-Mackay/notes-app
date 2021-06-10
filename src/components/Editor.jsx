@@ -5,7 +5,6 @@ import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
-import { useAlert } from 'react-alert';
 
 
 export default function MyEditor(props) {
@@ -18,7 +17,6 @@ export default function MyEditor(props) {
 
   let selected = props.selectedNote;
 
-  const alert = useAlert();
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
@@ -41,15 +39,11 @@ export default function MyEditor(props) {
     setEditorState(EditorState.createEmpty());
     setTitle("");
     props.onClear();
-    //history.push('/');
   }
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    //history.push('/');
-    props.onEdit(convertedState, selected.id, title, saveCategory);
-    //alert.show('note saved!')
-    
+    props.onEdit(convertedState, selected.id, title, saveCategory);    
   }
 
   useEffect(() => {
