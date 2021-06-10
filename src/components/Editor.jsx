@@ -18,7 +18,7 @@ export default function MyEditor(props) {
 
   let selected = props.selectedNote;
 
-  //const alert = useAlert();
+  const alert = useAlert();
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
 
@@ -32,7 +32,7 @@ export default function MyEditor(props) {
 
   
   const save = (incState) => {
-   // alert.show('New note saved!')
+   alert.show('New note saved!')
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onSave(convertedState, saveCategory, title);
   };
