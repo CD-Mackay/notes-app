@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useApplicationData from '../Hooks/useApplicationData';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
 
+  const now = Date.now();
+
+
+  const isNoteNew = () => {
+    if (props.modified) {
+      const elapsed = now - props.modified; 
+      if (elapsed < 10000) {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (!props.modified) {
+    const elapsed = now - props.date; 
+    if (elapsed < 10000) {
+      return true;
+    } else {
+      return false;
+    }}
+  };
+
+  const [isNew, setIsNew] = useState(isNoteNew());
   const { getDate } = useApplicationData();
 
   const deleteNote = () => props.delete(props.noteId);
@@ -13,8 +34,13 @@ export default function NoteListItem(props) {
   
   const edit = () => props.onSelect(props.noteId);
 
+
+  setTimeout(() => {
+    setIsNew(false);
+  }, 3000)
+
   return (
-  <div className="note-wrapper">
+  <div className={isNew ? "new-wrapper" : "note-wrapper"}>
     {props.title && <span>{props.title}</span>}
     {!props.title && <span>Untitled</span>}
     <div className="date-wrapper">

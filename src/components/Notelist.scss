@@ -23,6 +23,17 @@
   }
 }
 
+.new-wrapper {
+  border: 1px solid red;
+  background-color: gold;
+  width: 400px;
+  margin-right: 0;
+  span {
+    line-height: 2.5;
+  }
+}
+
+
 @media screen and (min-width: 769px) {
   .notes {
     margin: 0px;
