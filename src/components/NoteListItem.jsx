@@ -1,23 +1,19 @@
 import React from 'react';
 import useApplicationData from '../Hooks/useApplicationData';
-import { useAlert } from 'react-alert';
 import "./styles.scss";
 
 export default function NoteListItem(props) {
-//  const alert = useAlert();
 
   const { getDate } = useApplicationData();
 
   const deleteNote = () => {
     props.delete(props.noteId);
-    //alert.show(`Deleted ${props.title}`)
   }
   const showDate = getDate(props.date);
   const showEdited = getDate(props.modified);
   
   const edit = () => {
      props.onSelect(props.noteId);
-    // history.push(`/${props.noteId}`);
       }
 
   return (
