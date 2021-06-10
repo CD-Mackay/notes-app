@@ -33,11 +33,8 @@ export default function useApplicationData() {
     .catch(err => console.log(err));
   };
 
-  function updateNote(note, id, title, category) {
-    console.log(note);
+  function updateNote(note, id, title, category) { 
     const currentDate = Date.now();
-    console.log(currentDate);
-    console.log(Date.now());
     const updatedNote = {
       note: note,
       category: category,
@@ -55,11 +52,7 @@ export default function useApplicationData() {
 
 
   function saveNote(note, category, title) {
-    console.log('saving in hooks!')
-    console.log(note);
     const currentDate = Date.now();
-    console.log(currentDate);
-    console.log(Date.now());
     const savedNote = {
       title: title,
       category: category,
@@ -81,7 +74,6 @@ export default function useApplicationData() {
   };
 
   function selectNote(id) {
-    console.log(id);
     const note = getNoteById(id);
     const selected = note.shift();
     setSelectedNote(selected);
