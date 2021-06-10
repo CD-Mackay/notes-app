@@ -44,11 +44,13 @@ export default function useApplicationData() {
       title: title,
       last_modified: currentDate
     }
-    return axios({
+    axios({
       method: 'put',
       url: `notes/${id}`,
-      data: { updatedNote }
-    }).catch(err => console.log(err));
+      data:  updatedNote 
+    })
+    .then(getAllNotes())
+    .catch(err => console.log(err));
   };
 
 

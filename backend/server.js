@@ -65,7 +65,7 @@ app.delete(`/notes/:noteID`, (req, res) => {
 });
 
 app.put('/notes/:noteID', (req, res) => {
-  const note = req.body.updatedNote;
+  const note = req.body;
   let noteID = req.params.noteID;
   pool.query("UPDATE notes SET note = $1, title = $2, category = $3, last_modified = $4 where id = $5;",
   [ note.note, note.title, note.category, note.last_modified, noteID])
