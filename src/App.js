@@ -29,7 +29,7 @@ const {
         selectedNote, 
         selectNote, 
         updateNote,
-        clearEditor
+        setSelectedNote
       } = useApplicationData();
 
 
@@ -40,7 +40,7 @@ const {
     <Header />
       <div className="page-wrapper">
         <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor onSave={saveNote} onClear={clearEditor} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+        <MyEditor onSave={saveNote} onClear={setSelectedNote} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
       </div>
     <Footer />
     </div>

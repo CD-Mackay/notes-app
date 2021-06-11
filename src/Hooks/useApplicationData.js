@@ -79,10 +79,6 @@ export default function useApplicationData() {
     setSelectedNote(selected);
   };
 
-  function clearEditor() {
-    return setSelectedNote(null);
-  };
-
   function getDate(milliseconds) {
     if (milliseconds) {
     let current = Date.now();
@@ -117,12 +113,13 @@ export default function useApplicationData() {
            notes, 
            getNoteById, 
            updateNote, 
-           selectedNote, 
+           selectedNote,
+           setSelectedNote, 
            selectNote, 
            getAllNotes, 
            setNotes, 
            getDate, 
-           clearEditor };
+        };
 };
 
 
