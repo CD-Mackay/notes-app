@@ -40,7 +40,7 @@ function App() {
     <Header />
       <div className="page-wrapper">
         <NoteList savedNotes={notes} />
-        <MyEditor onSave={Helpers.saveNote} onClear={setSelectedNote} onDelete={Helpers.deleteNote} onEdit={Helpers.updateNote} notes={notes} getNote={Helpers.getNoteById} selectedNote={selectedNote} />
+        <MyEditor onClear={setSelectedNote} notes={notes} selectedNote={selectedNote} />
       </div>
     <Footer />
     </div>

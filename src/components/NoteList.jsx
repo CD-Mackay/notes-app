@@ -25,7 +25,6 @@ export default function NoteList({savedNotes, selectedNote}) {
                            noteId={note.id} 
                            key={note.id} 
                            title={note.title} 
-                           getNote={getNote}
                            selectedNote={selectedNote}
                            date={note.date_created}
                            modified={note.last_modified}

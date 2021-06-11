@@ -5,6 +5,7 @@ import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
+import Helpers from '../Hooks/useApplicationData';
 
 
 export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getNote, selectedNote}) {
@@ -31,18 +32,18 @@ export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getN
   
   const save = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    onSave(convertedState, saveCategory, title);
+    Helpers.saveNote(convertedState, saveCategory, title);
   };
 
   const newNote = () => {
     setEditorState(EditorState.createEmpty());
     setTitle("");
-    onClear();
+    onClear(null);
   };
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    onEdit(convertedState, selected.id, title, saveCategory);    
+    Helpers.updateNote(convertedState, selected.id, title, saveCategory);    
   };
 
   useEffect(() => {

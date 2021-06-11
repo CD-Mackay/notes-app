@@ -32,7 +32,7 @@ export default function NoteListItem(props) {
   const showDate = Helpers.getDate(props.date);
   const showEdited = Helpers.getDate(props.modified);
   
-  const edit = () => props.onSelect(props.noteId);
+  const edit = () => Helpers.selectNote(props.noteId);
 
 
   setTimeout(() => {
