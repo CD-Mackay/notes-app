@@ -8,7 +8,7 @@ import CategoryButtons from './CategoryButtons';
 import Helpers from '../Hooks/useApplicationData';
 
 
-export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getNote, selectedNote}) {
+export default function MyEditor({setSelectedNote, selectedNote}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
@@ -38,7 +38,7 @@ export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getN
   const newNote = () => {
     setEditorState(EditorState.createEmpty());
     setTitle("");
-    onClear(null);
+    setSelectedNote(null);
   };
 
   const update = (incState) => {

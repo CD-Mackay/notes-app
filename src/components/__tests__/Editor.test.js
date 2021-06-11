@@ -51,11 +51,6 @@ describe("MyEditor", () => {
     expect(onSave).toHaveBeenCalled;
   });
 
-  it("it clears the editor when the newNote button is clicked", () => {
-    const { getByPlaceholderText, getByText } = render(<MyEditor selectedNote={selectedNote} />);
-    fireEvent.click(getByText('New'));
-    expect(getByPlaceholderText('note title')).toBeInTheDocument;
-  });
 
   it("modifies the note title according to user input", () => {
     const { getByPlaceholderText } = render(<MyEditor selectedNote={selectedNote} />);

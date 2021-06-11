@@ -33,5 +33,5 @@ describe("Das Application", () => {
     expect(getByPlaceholderText('note title')).toHaveValue("updated title");
     fireEvent.click(getByText('New'));
     expect(getByPlaceholderText('note title')).toHaveValue("");
-  });
+  }); 
 });
