@@ -1,28 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 
-
-export default function useApplicationData() {
-
-  const [notes, setNotes] = useState([]);
-  const [selectedNote, setSelectedNote] = useState(null);
-  
-
-  useEffect(() => {
-   getAllNotes();
-  }, []);
-
-  function getAllNotes() {
-    axios({
-      method: 'get',
-      url: '/notes'
-    })
-    .then(res => {
-      setNotes(res.data);
-    })
-    .catch(err => console.log(err));
+  async function getAllNotes() {
+    const { data: notes } = await axios.get('/notes');
+    return notes;
   };
-
 
   function deleteNote(id) {
   axios({
@@ -32,6 +13,11 @@ export default function useApplicationData() {
     .then(getAllNotes())
     .catch(err => console.log(err));
   };
+
+  // async function deleteNote(id) {
+  //   const message = await axios.delete(`${API_URL}/${id}`);
+  //   return message;
+  // }
 
   function updateNote(note, id, title, category) { 
     const currentDate = Date.now();
@@ -69,14 +55,14 @@ export default function useApplicationData() {
     .catch(err => console.log(err));
   };
 
-  function getNoteById(id) {
+  function getNoteById(id, notes) {
     return notes.filter(note => note.id === id);
   };
 
-  function selectNote(id) {
-    const note = getNoteById(id);
+  function selectNote(id, notes) {
+    const note = getNoteById(id, notes);
     const selected = note.shift();
-    setSelectedNote(selected);
+    return selected;
   };
 
   function getDate(milliseconds) {
@@ -108,19 +94,15 @@ export default function useApplicationData() {
   };
 
 
-  return { saveNote, 
+  export default { saveNote, 
            deleteNote, 
-           notes, 
            getNoteById, 
            updateNote, 
-           selectedNote,
-           setSelectedNote, 
            selectNote, 
-           getAllNotes, 
-           setNotes, 
+           getAllNotes,  
            getDate, 
         };
-};
+
 
 
 

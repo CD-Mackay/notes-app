@@ -1,8 +1,8 @@
 import './App.css';
-import { React } from 'react';
+import { React, useState, useEffect } from 'react';
 
 // Import Hooks
-import useApplicationData from './Hooks/useApplicationData';
+import Helpers from './Hooks/useApplicationData';
 
 
 /// import components
@@ -21,26 +21,26 @@ library.add(fab, faCheckSquare, faCoffee, faGithubAlt, faLinkedinIn, faEnvelope,
 
 function App() {
 
-const { 
-        saveNote,
-        deleteNote, 
-        notes, 
-        getNoteById,
-        selectedNote, 
-        selectNote, 
-        updateNote,
-        setSelectedNote
-      } = useApplicationData();
+  const [notes, setNotes] = useState([]);
+  const [selectedNote, setSelectedNote] = useState(null);
+  
 
+  const fetchAndSetNotes = async () => {
+    const saved = await Helpers.getAllNotes();
+    setNotes(saved);
+  };
 
+  useEffect(() => {
+    fetchAndSetNotes();
+  }, []);
 
   return (
    
       <div className="App">
     <Header />
       <div className="page-wrapper">
-        <NoteList savedNotes={notes} onDelete={deleteNote} getNote={getNoteById} selectedNote={selectedNote} onSelect={selectNote} />
-        <MyEditor onSave={saveNote} onClear={setSelectedNote} onDelete={deleteNote} onEdit={updateNote} notes={notes} getNote={getNoteById} selectedNote={selectedNote} />
+        <NoteList savedNotes={notes} selectedNote={selectedNote} setSelectedNote={setSelectedNote} setNotes={setNotes} />
+        <MyEditor onClear={setSelectedNote} notes={notes} selectedNote={selectedNote} />
       </div>
     <Footer />
     </div>
