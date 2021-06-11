@@ -3,8 +3,7 @@ import axios from 'axios';
   async function getAllNotes() {
     const { data: notes } = await axios.get('/notes');
     return notes;
-  }
-
+  };
 
   function deleteNote(id) {
   axios({
@@ -14,6 +13,11 @@ import axios from 'axios';
     .then(getAllNotes())
     .catch(err => console.log(err));
   };
+
+  // async function deleteNote(id) {
+  //   const message = await axios.delete(`${API_URL}/${id}`);
+  //   return message;
+  // }
 
   function updateNote(note, id, title, category) { 
     const currentDate = Date.now();
@@ -55,8 +59,8 @@ import axios from 'axios';
     return notes.filter(note => note.id === id);
   };
 
-  function selectNote(id) {
-    const note = getNoteById(id);
+  function selectNote(id, notes) {
+    const note = getNoteById(id, notes);
     const selected = note.shift();
     return selected;
   };

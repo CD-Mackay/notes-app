@@ -27,9 +27,9 @@ function App() {
 
   const fetchAndSetNotes = async () => {
     const saved = await Helpers.getAllNotes();
-    console.log("saved, app.js: ", saved);
     setNotes(saved);
-  }
+  };
+
   useEffect(() => {
     fetchAndSetNotes();
   }, []);
@@ -39,7 +39,7 @@ function App() {
       <div className="App">
     <Header />
       <div className="page-wrapper">
-        <NoteList savedNotes={notes} />
+        <NoteList savedNotes={notes} selectedNote={selectedNote} setSelectedNote={setSelectedNote} setNotes={setNotes} />
         <MyEditor onClear={setSelectedNote} notes={notes} selectedNote={selectedNote} />
       </div>
     <Footer />

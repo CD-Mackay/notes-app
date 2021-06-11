@@ -27,12 +27,14 @@ export default function NoteListItem(props) {
 
   const [isNew, setIsNew] = useState(isNoteNew());
 
-  const deleteNote = () => Helpers.deleteNote(props.noteId);
+  const deleteNote = () => {
+    Helpers.deleteNote(props.noteId);
+  };
   
   const showDate = Helpers.getDate(props.date);
   const showEdited = Helpers.getDate(props.modified);
   
-  const edit = () => Helpers.selectNote(props.noteId);
+  const edit = () => {props.setSelectedNote(Helpers.selectNote(props.noteId, props.notes))};
 
 
   setTimeout(() => {
