@@ -27,7 +27,7 @@ function App() {
 
   const fetchAndSetNotes = async () => {
     const saved = await Helpers.getAllNotes();
-    console.log(saved);
+    console.log("saved, app.js: ", saved);
     setNotes(saved);
   }
   useEffect(() => {

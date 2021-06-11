@@ -1,16 +1,9 @@
 import axios from 'axios';
 
-  function getAllNotes() {
-    axios({
-      method: 'get',
-      url: '/notes'
-    })
-    .then(res => {
-      console.log(res.data);
-      return res.data
-    })
-    .catch(err => console.log(err));
-  };
+  async function getAllNotes() {
+    const { data: notes } = await axios.get('/notes');
+    return notes;
+  }
 
 
   function deleteNote(id) {
