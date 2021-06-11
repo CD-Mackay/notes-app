@@ -5,7 +5,7 @@ import './Notelist.scss';
 import ViewCategories from './ViewCategories';
 
 
-export default function NoteList(props) {
+export default function NoteList({savedNotes, selectedNote}) {
   const [viewCategory, setViewCategory] = useState(null);
 
   const chooseViewCategory = (event) => {
@@ -17,7 +17,7 @@ export default function NoteList(props) {
   }
 
     const parsedNotes = 
-    props.savedNotes
+    savedNotes
     .filter (note => note.category === viewCategory || viewCategory === null )
     .map(note => {
       if (note.note) {
@@ -25,10 +25,8 @@ export default function NoteList(props) {
                            noteId={note.id} 
                            key={note.id} 
                            title={note.title} 
-                           delete={props.onDelete} 
-                           getNote={props.getNote}
-                           selectedNote={props.selectedNote}
-                           onSelect={props.onSelect}
+                           getNote={getNote}
+                           selectedNote={selectedNote}
                            date={note.date_created}
                            modified={note.last_modified}
                            />

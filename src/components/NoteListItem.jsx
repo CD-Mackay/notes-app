@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useApplicationData from '../Hooks/useApplicationData';
 import "./styles.scss";
+import Helpers from '../Hooks/useApplicationData';
 
 export default function NoteListItem(props) {
 
@@ -25,12 +26,11 @@ export default function NoteListItem(props) {
   };
 
   const [isNew, setIsNew] = useState(isNoteNew());
-  const { getDate } = useApplicationData();
 
-  const deleteNote = () => props.delete(props.noteId);
+  const deleteNote = () => Helpers.deleteNote(props.noteId);
   
-  const showDate = getDate(props.date);
-  const showEdited = getDate(props.modified);
+  const showDate = Helpers.getDate(props.date);
+  const showEdited = Helpers.getDate(props.modified);
   
   const edit = () => props.onSelect(props.noteId);
 

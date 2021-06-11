@@ -1,16 +1,4 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-
-
-export default function useApplicationData() {
-
-  const [notes, setNotes] = useState([]);
-  const [selectedNote, setSelectedNote] = useState(null);
-  
-
-  useEffect(() => {
-   getAllNotes();
-  }, []);
 
   function getAllNotes() {
     axios({
@@ -18,7 +6,8 @@ export default function useApplicationData() {
       url: '/notes'
     })
     .then(res => {
-      setNotes(res.data);
+      console.log(res.data);
+      return res.data
     })
     .catch(err => console.log(err));
   };
@@ -69,14 +58,14 @@ export default function useApplicationData() {
     .catch(err => console.log(err));
   };
 
-  function getNoteById(id) {
+  function getNoteById(id, notes) {
     return notes.filter(note => note.id === id);
   };
 
   function selectNote(id) {
     const note = getNoteById(id);
     const selected = note.shift();
-    setSelectedNote(selected);
+    return selected;
   };
 
   function getDate(milliseconds) {
@@ -108,19 +97,15 @@ export default function useApplicationData() {
   };
 
 
-  return { saveNote, 
+  export default { saveNote, 
            deleteNote, 
-           notes, 
            getNoteById, 
            updateNote, 
-           selectedNote,
-           setSelectedNote, 
            selectNote, 
-           getAllNotes, 
-           setNotes, 
+           getAllNotes,  
            getDate, 
         };
-};
+
 
 
 

@@ -5,7 +5,6 @@ import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
-import useApplicationData from '../Hooks/useApplicationData';
 
 
 export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getNote, selectedNote}) {
@@ -14,8 +13,6 @@ export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getN
   );
   const [title, setTitle] = useState("");
   const [saveCategory, setSaveCategory] = useState(null);
-
-  const { setSelectedNote } = useApplicationData();
 
 
   let selected = selectedNote;
