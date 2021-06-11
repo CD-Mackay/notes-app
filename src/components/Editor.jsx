@@ -5,17 +5,20 @@ import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
+import useApplicationData from '../Hooks/useApplicationData';
 
 
-export default function MyEditor(props) {
+export default function MyEditor({onSave, onClear, onDelete, onEdit, notes, getNote, selectedNote}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
   const [title, setTitle] = useState("");
   const [saveCategory, setSaveCategory] = useState(null);
 
+  const { setSelectedNote } = useApplicationData();
 
-  let selected = props.selectedNote;
+
+  let selected = selectedNote;
 
 
   const handleTitleChange = event => setTitle(event.currentTarget.value);
@@ -31,18 +34,18 @@ export default function MyEditor(props) {
   
   const save = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    props.onSave(convertedState, saveCategory, title);
+    onSave(convertedState, saveCategory, title);
   };
 
   const newNote = () => {
     setEditorState(EditorState.createEmpty());
     setTitle("");
-    props.onClear();
+    onClear();
   };
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    props.onEdit(convertedState, selected.id, title, saveCategory);    
+    onEdit(convertedState, selected.id, title, saveCategory);    
   };
 
   useEffect(() => {
