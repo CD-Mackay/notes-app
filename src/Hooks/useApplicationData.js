@@ -80,7 +80,7 @@ export default function useApplicationData() {
   };
 
   function clearEditor() {
-    setSelectedNote(null);
+    return setSelectedNote(null);
   };
 
   function getDate(milliseconds) {
@@ -112,8 +112,18 @@ export default function useApplicationData() {
   };
 
 
-  return { saveNote, deleteNote, notes, getNoteById, updateNote, selectedNote, selectNote,getAllNotes, setNotes, getDate, clearEditor }
-}
+  return { saveNote, 
+           deleteNote, 
+           notes, 
+           getNoteById, 
+           updateNote, 
+           selectedNote, 
+           selectNote, 
+           getAllNotes, 
+           setNotes, 
+           getDate, 
+           clearEditor };
+};
 
 
 

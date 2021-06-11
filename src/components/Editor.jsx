@@ -38,12 +38,12 @@ export default function MyEditor(props) {
     setEditorState(EditorState.createEmpty());
     setTitle("");
     props.onClear();
-  }
+  };
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     props.onEdit(convertedState, selected.id, title, saveCategory);    
-  }
+  };
 
   useEffect(() => {
     if (selected) {
