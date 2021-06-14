@@ -29,6 +29,7 @@ export default function NoteListItem(props) {
 
   const deleteNote = () => {
     Helpers.deleteNote(props.noteId);
+    props.update();
   };
   
   const showDate = Helpers.getDate(props.date);
