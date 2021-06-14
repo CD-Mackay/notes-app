@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useApplicationData from '../Hooks/useApplicationData';
 import "./styles.scss";
 import Helpers from '../Hooks/useApplicationData';
 
@@ -29,6 +28,7 @@ export default function NoteListItem(props) {
 
   const deleteNote = () => {
     Helpers.deleteNote(props.noteId);
+    props.update();
   };
   
   const showDate = Helpers.getDate(props.date);

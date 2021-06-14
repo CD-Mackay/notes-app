@@ -7,8 +7,7 @@ import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import Helpers from '../Hooks/useApplicationData';
 
-
-export default function MyEditor({setSelectedNote, selectedNote}) {
+export default function MyEditor({setSelectedNote, selectedNote, updateNotes}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
@@ -33,6 +32,7 @@ export default function MyEditor({setSelectedNote, selectedNote}) {
   const save = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     Helpers.saveNote(convertedState, saveCategory, title);
+    updateNotes();
   };
 
   const newNote = () => {
@@ -43,7 +43,8 @@ export default function MyEditor({setSelectedNote, selectedNote}) {
 
   const update = (incState) => {
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    Helpers.updateNote(convertedState, selected.id, title, saveCategory);    
+    Helpers.updateNote(convertedState, selected.id, title, saveCategory); 
+    updateNotes();   
   };
 
   useEffect(() => {

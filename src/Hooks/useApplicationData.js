@@ -14,11 +14,6 @@ import axios from 'axios';
     .catch(err => console.log(err));
   };
 
-  // async function deleteNote(id) {
-  //   const message = await axios.delete(`${API_URL}/${id}`);
-  //   return message;
-  // }
-
   function updateNote(note, id, title, category) { 
     const currentDate = Date.now();
     const updatedNote = {
