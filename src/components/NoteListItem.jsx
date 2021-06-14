@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useApplicationData from '../Hooks/useApplicationData';
 import "./styles.scss";
 import Helpers from '../Hooks/useApplicationData';
 
