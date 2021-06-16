@@ -40,7 +40,7 @@ function App() {
     <Header />
       <div className="page-wrapper">
         <NoteList update={fetchAndSetNotes} savedNotes={notes} selectedNote={selectedNote} setSelectedNote={setSelectedNote} setNotes={setNotes} />
-        <MyEditor updateNotes={fetchAndSetNotes} setSelectedNote={setSelectedNote} notes={notes} selectedNote={selectedNote} />
+        <MyEditor fetchAndSetNotes={fetchAndSetNotes} setSelectedNote={setSelectedNote} notes={notes} selectedNote={selectedNote} />
       </div>
     <Footer />
     </div>
