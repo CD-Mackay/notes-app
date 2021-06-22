@@ -11,10 +11,17 @@ export default function InlineStyleButtons(props) {
       setEngaged(false);
     } else {
       setEngaged(true);
-    }
+    };
+  };
 
-  }
   return (
-    <button className={engaged ? "style-button" : "dark-button"} onClick={selectStyle} onMouseDown={props.setStyle} data-style={props.style} textstyle={props.style}>{props.icon}</button>
+    <button 
+    className={engaged ? "style-button" : "dark-button"} 
+    onClick={selectStyle} 
+    onMouseDown={props.setStyle} 
+    data-style={props.style} 
+    textstyle={props.style}>
+      {props.icon}
+    </button>
   )
 }

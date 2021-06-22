@@ -39,7 +39,7 @@ export default function NoteListItem(props) {
 
   setTimeout(() => {
     setIsNew(false);
-  }, 3000)
+  }, 3000);
 
   return (
   <div className={isNew ? "new-wrapper" : "note-wrapper"}>

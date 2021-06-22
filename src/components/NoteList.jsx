@@ -13,14 +13,13 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
       setViewCategory(null);
     } else {
       setViewCategory(event.target.value);
-    }
-  }
+    };
+  };
 
     const parsedNotes = 
     savedNotes
     .filter (note => note.category === viewCategory || viewCategory === null )
-    .map(note => {
-       
+    .map(note => { 
       return <NoteListItem content={note.note}
                            noteId={note.id} 
                            key={note.id} 
@@ -35,7 +34,8 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
                            update={update}
                            />
       
-  })
+  });
+
   return (
     <div className="notes" data-testid="noteList">
       <ViewCategories onSelect={chooseViewCategory} currentCat={viewCategory} lastCat={"all"} />
