@@ -20,7 +20,7 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
     savedNotes
     .filter (note => note.category === viewCategory || viewCategory === null )
     .map(note => {
-      if (note.note) {
+       
       return <NoteListItem content={note.note}
                            noteId={note.id} 
                            key={note.id} 
@@ -34,7 +34,7 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
                            setSelectedNote={setSelectedNote}
                            update={update}
                            />
-      }
+      
   })
   return (
     <div className="notes" data-testid="noteList">
