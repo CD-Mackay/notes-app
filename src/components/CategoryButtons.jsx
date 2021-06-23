@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Categorystyles.scss';
 
 export default function CategoryButtons(props) {
@@ -7,14 +7,16 @@ export default function CategoryButtons(props) {
     return array.filter((a, b) => array.indexOf(a) === b);
   };
 
-  // const categories = props.notes
-  // .map(note => {
-  //   return note.category;
-  // });
+  let categories = props.notes
+  .map(note => {
+    return note.category;
+  });
 
-  // use
+  useEffect(() => {
+    categories = removeDuplicates(categories);
+    console.log(categories);
+  });
 
-  // console.log(categories);
   return (
     <div className="editButtons" onChange={props.onSelectCategory}>
       <div className="cat-button-wrapper">
