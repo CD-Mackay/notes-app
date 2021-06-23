@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Categorystyles.scss';
 
 export default function CategoryButtons(props) {

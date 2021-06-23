@@ -3,8 +3,6 @@ import './Categorystyles.scss';
 
 export default function ViewCategories(props) {
 
-  const baseCats = ["Work", "Personal", "Hobbies"];
-
   function removeDuplicates(array) {
     return array.filter((a, b) => array.indexOf(a) === b);
   };
@@ -23,6 +21,7 @@ export default function ViewCategories(props) {
     <div className="notesButtons" onChange={props.onSelect}>
       <select name="categories" id="categories">
       {categories}
+      <option value="all">all</option>
       </select>
     </div>  
    
