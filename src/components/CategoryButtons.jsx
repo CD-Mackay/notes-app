@@ -3,22 +3,6 @@ import './Categorystyles.scss';
 
 export default function CategoryButtons(props) {
 
-  const baseCats = ["Work", "Personal", "Hobbies"];
-
-  function removeDuplicates(array) {
-    return array.filter((a, b) => array.indexOf(a) === b);
-  };
-
-  let categories = props.notes
-  .map(note => {
-    return note.category;
-  });
-
-  useEffect(() => {
-    categories = removeDuplicates(categories);
-    console.log(categories);
-  });
-
   return (
     <div className="editButtons" >
       <div className="cat-button-wrapper">

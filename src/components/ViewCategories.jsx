@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Categorystyles.scss';
 
 export default function ViewCategories(props) {
+
+  const baseCats = ["Work", "Personal", "Hobbies"];
+
+  function removeDuplicates(array) {
+    return array.filter((a, b) => array.indexOf(a) === b);
+  };
+
+  let categories = props.notes
+  .map(note => {
+    return note.category;
+  });
+
+  useEffect(() => {
+    categories = removeDuplicates(categories);
+    console.log(categories);
+  });
+
   return (
     <div className="notesButtons" onChange={props.onSelect}>
       <button className="modify" data-testid="workButton" onClick={props.onSelect} value="work">
