@@ -6,7 +6,6 @@ import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import Helpers from '../Hooks/useApplicationData';
-import { checkPropTypes } from 'prop-types';
 
 export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes, notes}) {
   const [editorState, setEditorState] = React.useState(

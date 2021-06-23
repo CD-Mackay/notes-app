@@ -29,7 +29,6 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
                            modified={note.last_modified}
                            setNotes={setNotes}
                            notes={savedNotes}
-                           selectedNote={selectedNote}
                            setSelectedNote={setSelectedNote}
                            update={update}
                            />
