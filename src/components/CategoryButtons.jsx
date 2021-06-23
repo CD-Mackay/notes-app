@@ -3,6 +3,18 @@ import './Categorystyles.scss';
 
 export default function CategoryButtons(props) {
 
+  function removeDuplicates(array) {
+    return array.filter((a, b) => array.indexOf(a) === b);
+  };
+
+  // const categories = props.notes
+  // .map(note => {
+  //   return note.category;
+  // });
+
+  // use
+
+  // console.log(categories);
   return (
     <div className="editButtons" onChange={props.onSelectCategory}>
       <div className="cat-button-wrapper">
