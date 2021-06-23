@@ -3,6 +3,8 @@ import './Categorystyles.scss';
 
 export default function CategoryButtons(props) {
 
+  const baseCats = ["Work", "Personal", "Hobbies"];
+
   function removeDuplicates(array) {
     return array.filter((a, b) => array.indexOf(a) === b);
   };
@@ -34,6 +36,9 @@ export default function CategoryButtons(props) {
       <div className="cat-button-wrapper">
         <label htmlFor={props.lastCat}>{props.lastCat}</label>
         <input type="radio" id={props.lastCat} name="category" value={props.lastCat}></input>
+      </div>
+      <div className="cat-button-wrapper">
+        {/* <input type="text" placeholder="enter new category" value=""></input> */}
       </div>
     </div>
    
