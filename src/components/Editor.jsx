@@ -6,8 +6,9 @@ import './Editor.scss';
 import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import Helpers from '../Hooks/useApplicationData';
+import { checkPropTypes } from 'prop-types';
 
-export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes}) {
+export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes, notes}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
@@ -67,7 +68,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
-    <CategoryButtons onSelectCategory={chooseSaveCategory} lastCat={"none"} />
+    <CategoryButtons onSelectCategory={chooseSaveCategory} notes={notes} lastCat={"none"} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
