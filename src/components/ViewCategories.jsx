@@ -13,8 +13,9 @@ export default function ViewCategories(props) {
   });
 
     categories = removeDuplicates(categories);
-    console.log(categories);
-    categories = categories.map(cat => <option key={cat} value={cat}>{cat}</option>)
+    categories = categories
+    .filter(cat => cat !== null)
+    .map(cat => <option key={cat} value={cat}>{cat}</option>)
 
 
   return (
