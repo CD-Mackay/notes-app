@@ -7,7 +7,7 @@ import ButtonList from './ButtonList';
 import CategoryButtons from './CategoryButtons';
 import Helpers from '../Hooks/useApplicationData';
 
-export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes}) {
+export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes, notes}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
@@ -30,8 +30,9 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
 
   
   const save = (incState) => {
+    const savingCat = saveCategory.toLowerCase();
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    Helpers.saveNote(convertedState, saveCategory, title);
+    Helpers.saveNote(convertedState, savingCat, title);
     fetchAndSetNotes();
   };
 
@@ -39,11 +40,13 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     setEditorState(EditorState.createEmpty());
     setTitle("");
     setSelectedNote(null);
+    setSaveCategory(null);
   };
 
   const update = (incState) => {
+    const savingCat = saveCategory.toLowerCase();
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    Helpers.updateNote(convertedState, selected.id, title, saveCategory); 
+    Helpers.updateNote(convertedState, selected.id, title, savingCat); 
     fetchAndSetNotes();   
   };
 
@@ -52,7 +55,8 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
       const noteToEdit = selected.note
       const selectedNote = EditorState.createWithContent(convertFromRaw(JSON.parse(JSON.stringify(noteToEdit))));
       setEditorState(selectedNote);
-      setTitle(selected.title)
+      setTitle(selected.title);
+      setSaveCategory(selected.category);
     } 
   }, [selected]);
 
@@ -67,7 +71,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
-    <CategoryButtons onSelectCategory={chooseSaveCategory} lastCat={"none"} />
+    <CategoryButtons onSelectCategory={chooseSaveCategory} category={saveCategory} lastCat={"none"} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />

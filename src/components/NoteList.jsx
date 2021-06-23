@@ -29,7 +29,6 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
                            modified={note.last_modified}
                            setNotes={setNotes}
                            notes={savedNotes}
-                           selectedNote={selectedNote}
                            setSelectedNote={setSelectedNote}
                            update={update}
                            />
@@ -38,7 +37,7 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
 
   return (
     <div className="notes" data-testid="noteList">
-      <ViewCategories onSelect={chooseViewCategory} currentCat={viewCategory} lastCat={"all"} />
+      <ViewCategories onSelect={chooseViewCategory} notes={savedNotes} currentCat={viewCategory} lastCat={"all"} />
       {viewCategory && <p>Category: {viewCategory}</p>}
       {viewCategory && parsedNotes.length > 0 && <p>{parsedNotes.length} notes in this category</p>}
       {!viewCategory && <p>Category: all</p>}
