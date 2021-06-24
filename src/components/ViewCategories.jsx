@@ -20,6 +20,7 @@ export default function ViewCategories(props) {
 
   return (
     <div className="notesButtons" onChange={props.onSelect}>
+      <label htmlFor="categories">Sort by category</label>
       <select name="categories" id="categories">
       {categories}
       <option value="all">all</option>

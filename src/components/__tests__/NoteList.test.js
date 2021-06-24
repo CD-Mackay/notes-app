@@ -112,21 +112,7 @@ it("Renders the appropriate buttons to select and delete notes", async () => {
   expect(getAllByText('Delete')).toBeInTheDocument;
 });
 
-it("filters the notelist according to category", () => {
-  const{ getByText, getByTestId, queryByText } = render(<NoteList savedNotes={notes} />);
-  fireEvent.click(getByTestId("personalButton"));
-  expect(queryByText("Writing notes is fun")).not.toBeInTheDocument;
-  expect(getByText("new note 1")).toBeInTheDocument;
-  fireEvent.click(getByTestId('allButton'));
-  expect(getByText("Writing notes is fun")).toBeInTheDocument;
-});
 
-it("does not show any notes if there are none in the selected category", () => {
-  const{ getByText, getByTestId, queryByText } = render(<NoteList savedNotes={notes} />);
-  fireEvent.click(getByTestId("workButton"));
-  expect(queryByText("new note 1")).not.toBeInTheDocument;
-  expect(getByText("No notes in this category")).toBeInTheDocument;
-});
 });
 
 

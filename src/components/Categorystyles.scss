@@ -1,10 +1,15 @@
-
+@import './variables.scss';
 
 .editButtons {
   display: flex;
   flex-direction: row;
   justify-content: center;
 };
+
+label {
+  font-family: $text-font;
+  color: black;
+}
 
 .notesButtons {
   display: flex;
