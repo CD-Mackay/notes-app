@@ -30,9 +30,11 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
 
   
   const save = (incState) => {
-    const savingCat = saveCategory.toLowerCase();
+    if (saveCategory) {
+      saveCategory = saveCategory.toLowerCase();
+    }
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    Helpers.saveNote(convertedState, savingCat, title);
+    Helpers.saveNote(convertedState, saveCategory, title);
     fetchAndSetNotes();
   };
 
@@ -44,9 +46,11 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
   };
 
   const update = (incState) => {
-    const savingCat = saveCategory.toLowerCase();
+    if (saveCategory) {
+      saveCategory = saveCategory.toLowerCase();
+    }
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
-    Helpers.updateNote(convertedState, selected.id, title, savingCat); 
+    Helpers.updateNote(convertedState, selected.id, title, saveCategory); 
     fetchAndSetNotes();   
   };
 
