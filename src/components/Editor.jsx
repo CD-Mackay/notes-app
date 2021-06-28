@@ -7,7 +7,7 @@ import ButtonList from './ButtonList';
 import CategoryInput from './CategoryInput';
 import Helpers from '../Hooks/useApplicationData';
 
-export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes, notes}) {
+export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes}) {
   const [editorState, setEditorState] = React.useState(
     () => EditorState.createEmpty()
   );
