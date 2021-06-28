@@ -20,14 +20,11 @@ export default function NoteList({savedNotes, selectedNote, setNotes, setSelecte
     savedNotes
     .filter (note => note.category === viewCategory || viewCategory === null )
     .map(note => { 
-      return <NoteListItem content={note.note}
-                           noteId={note.id} 
+      return <NoteListItem noteId={note.id} 
                            key={note.id} 
                            title={note.title} 
-                           selectedNote={selectedNote}
                            date={note.date_created}
                            modified={note.last_modified}
-                           setNotes={setNotes}
                            notes={savedNotes}
                            setSelectedNote={setSelectedNote}
                            update={update}

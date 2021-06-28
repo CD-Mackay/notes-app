@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import "./styles.scss";
 import Helpers from '../Hooks/useApplicationData';
 
-export default function NoteListItem(props) {
+export default function NoteListItem({ noteId, title, date, modified, notes, setSelectedNote, update}) {
 
   const now = Date.now();
 
 
   const isNoteNew = () => {
-    if (props.modified) {
-      const elapsed = now - props.modified; 
+    if (modified) {
+      const elapsed = now - modified; 
       if (elapsed < 10000) {
         return true;
       } else {
         return false;
       }
-    } else if (!props.modified) {
-    const elapsed = now - props.date; 
+    } else if (!modified) {
+    const elapsed = now - date; 
     if (elapsed < 10000) {
       return true;
     } else {
@@ -27,14 +27,14 @@ export default function NoteListItem(props) {
   const [isNew, setIsNew] = useState(isNoteNew());
 
   const deleteNote = () => {
-    Helpers.deleteNote(props.noteId);
-    props.update();
+    Helpers.deleteNote(noteId);
+    update();
   };
   
-  const showDate = Helpers.getDate(props.date);
-  const showEdited = Helpers.getDate(props.modified);
+  const showDate = Helpers.getDate(date);
+  const showEdited = Helpers.getDate(modified);
   
-  const edit = () => {props.setSelectedNote(Helpers.selectNote(props.noteId, props.notes))};
+  const edit = () => {setSelectedNote(Helpers.selectNote(noteId, notes))};
 
 
   setTimeout(() => {
@@ -43,13 +43,13 @@ export default function NoteListItem(props) {
 
   return (
   <div className={isNew ? "new-wrapper" : "note-wrapper"}>
-    {props.title && <span>{props.title}</span>}
-    {!props.title && <span>Untitled</span>}
+    {title && <span>{title}</span>}
+    {!title && <span>Untitled</span>}
     <div className="date-wrapper">
       <p data-testid="date-info" >Created:  </p>
     <p>{showDate}</p>
     </div>
-    {props.modified && <div className="date-wrapper">
+    {modified && <div className="date-wrapper">
       <p>Last Edited:  </p>
     <p>{showEdited}</p>
     </div>}
