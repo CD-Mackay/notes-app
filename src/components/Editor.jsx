@@ -12,7 +12,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     () => EditorState.createEmpty()
   );
   const [title, setTitle] = useState("");
-  const [saveCategory, setSaveCategory] = useState(null);
+  let [saveCategory, setSaveCategory] = useState(null);
 
 
   let selected = selectedNote;
