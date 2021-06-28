@@ -4,7 +4,7 @@ import '../../node_modules/draft-js/dist/Draft.css';
 import './styles.scss';
 import './Editor.scss';
 import ButtonList from './ButtonList';
-import CategoryButtons from './CategoryButtons';
+import CategoryInput from './CategoryInput';
 import Helpers from '../Hooks/useApplicationData';
 
 export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNotes, notes}) {
@@ -75,7 +75,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     <div className="editor"> 
     <div className="buttons">
     <ButtonList toggleInlineStyle={toggleInlineStyle} />
-    <CategoryButtons onSelectCategory={chooseSaveCategory} category={saveCategory} lastCat={"none"} />
+    <CategoryInput onSelectCategory={chooseSaveCategory} category={saveCategory} lastCat={"none"} />
     </div>
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
