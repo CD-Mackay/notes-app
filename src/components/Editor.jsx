@@ -25,8 +25,8 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
       setSaveCategory(null);
     } else {
     setSaveCategory(event.target.value);
-    }
-  }
+    };
+  };
 
   
   const save = (incState) => {
@@ -48,7 +48,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
   const update = (incState) => {
     if (saveCategory) {
       saveCategory = saveCategory.toLowerCase();
-    }
+    };
     const convertedState = (JSON.stringify(convertToRaw(incState.getCurrentContent())));
     Helpers.updateNote(convertedState, selected.id, title, saveCategory); 
     fetchAndSetNotes();   
@@ -61,7 +61,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
       setEditorState(selectedNote);
       setTitle(selected.title);
       setSaveCategory(selected.category);
-    } 
+    };
   }, [selected]);
 
   const toggleInlineStyle = (event) => {
@@ -94,5 +94,5 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
     </button>
       </div>
     </div>
-  )
-}
+  );
+};
