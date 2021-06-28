@@ -5,7 +5,7 @@ import './Notelist.scss';
 import ViewCategories from './ViewCategories';
 
 
-export default function NoteList({savedNotes, selectedNote, setNotes, setSelectedNote, update}) {
+export default function NoteList({savedNotes, setSelectedNote, update}) {
   const [viewCategory, setViewCategory] = useState(null);
 
   const chooseViewCategory = (event) => {
