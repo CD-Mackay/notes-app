@@ -80,7 +80,7 @@ export default function MyEditor({setSelectedNote, selectedNote, fetchAndSetNote
      <div className="title-wrapper">
     <input type="text" placeholder="note title" value={title} onChange={handleTitleChange} />
     </div>
-    <Editor editorState={editorState} onChange={setEditorState} placeholder="WRITE SOMETHING!"/>
+    <Editor editorState={editorState} onChange={setEditorState} placeholder="Note goes here!"/>
     <div className="save-delete-wrapper">
     <button className="save" onClick={selected ? () => update(editorState) : () => save(editorState)} >
       <p className="hover-text">&lt;</p>
